@@ -1,17 +1,48 @@
-name: 'connector_name'
+name: 'greenhouse_source'
 version: '0.1.0'
 config-version: 2
 require-dbt-version: [">=0.18.0", "<0.19.0"]
 
 
 vars:
-  connector:
-    table_name: "{{ ref('stg_connector__table_name') }}" # all references to staging models should be vars
-
-  connector_source:
-    table_name: "{{ source('connector', 'table_name') }}" # all sources should be vars
+  greenhouse_source:
+    activity: "{{ source('greenhouse', 'activity') }}" 
+    application: "{{ source('greenhouse', 'application') }}" 
+    application_qna: "{{ source('greenhouse', 'application_qna') }}" 
+    application_history: "{{ source('greenhouse', 'application_history') }}" 
+    attachment: "{{ source('greenhouse', 'attachment') }}" 
+    candidate: "{{ source('greenhouse', 'candidate') }}" 
+    candidate_tag: "{{ source('greenhouse', 'candidate_tag') }}" 
+    close_reason: "{{ source('greenhouse', 'close_reason') }}" 
+    eeoc: "{{ source('greenhouse', 'eeoc') }}" 
+    email_address: "{{ source('greenhouse', 'email_address') }}" 
+    hiring_team: "{{ source('greenhouse', 'hiring_team') }}" 
+    interview: "{{ source('greenhouse', 'interview') }}" 
+    job: "{{ source('greenhouse', 'job') }}" 
+    job_department: "{{ source('greenhouse', 'job_department') }}" 
+    job_office: "{{ source('greenhouse', 'job_office') }}" 
+    job_opening: "{{ source('greenhouse', 'job_opening') }}" 
+    job_post: "{{ source('greenhouse', 'job_post') }}" 
+    job_stage: "{{ source('greenhouse', 'job_stage') }}" 
+    office: "{{ source('greenhouse', 'job_application') }}" 
+    phone_number: "{{ source('greenhouse', 'phone_number') }}" 
+    scheduled_interview: "{{ source('greenhouse', 'scheduled_interview') }}" 
+    scheduled_interviewer: "{{ source('greenhouse', 'scheduled_interviewer') }}" 
+    scorecard: "{{ source('greenhouse', 'scorecard') }}" 
+    scorecard_attribute: "{{ source('greenhouse', 'scorecard_attribute') }}" 
+    social_media_address: "{{ source('greenhouse', 'social_media_address') }}" 
+    source: "{{ source('greenhouse', 'source') }}" 
+    tag: "{{ source('greenhouse', 'tag') }}" 
+    user: "{{ source('greenhouse', 'user') }}" 
+    user_email: "{{ source('greenhouse', 'user_email') }}" 
+    website_address: "{{ source('greenhouse', 'website_address') }}" 
+  
+  greenhouse_application_custom_columns: ['custom_what_is_your_preferred_pronoun_', 'custom_how_did_you_hear_about_fivetran_']
+  greenhouse_using_eeoc: true
+  greenhouse_using_app_history: true
+  greenhouse_using_prospects: true
 
 models: 
   materialized: table # for building the package, switch to views later? 
 
-profile: dev_bigquery_dbt_testing
+profile: fivetran

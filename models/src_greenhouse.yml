@@ -1,0 +1,47 @@
+version: 2
+
+sources:
+  - name: greenhouse 
+    database: "{{ var ('greenhouse_database', target.database) }}"
+    schema: "{{ var ('greenhouse_schema', 'greenhouse') }}"
+
+    loader: fivetran
+    loaded_at_field: _fivetran_synced
+      
+    freshness:
+      warn_after: {count: 72, period: hour}
+      error_after: {count: 96, period: hour}
+
+    tables:
+      - name: activity
+      - name: application
+      - name: application_qna
+      - name: application_history
+      - name: attachment
+      - name: candidate
+      - name: candidate_tag
+      - name: close_reason
+      - name: eeoc
+      - name: email_address
+      - name: hiring_team
+      - name: interview
+      - name: job
+      - name: job_application
+      - name: job_department 
+      - name: job_office
+      - name: job_opening
+      - name: job_post 
+      - name: job_stage
+      - name: office
+      - name: phone_number
+      - name: scheduled_interview
+      - name: scheduled_interviewer
+      - name: scorecard
+      - name: scorecard_attribute
+      - name: social_media_address
+      - name: source
+      - name: tag
+      - name: user
+      - name: user_email
+      - name: website_address
+         
