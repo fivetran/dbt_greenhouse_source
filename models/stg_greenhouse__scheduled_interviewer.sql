@@ -21,7 +21,12 @@ fields as (
 
 final as (
     
-    select *
+    select 
+        _fivetran_synced,
+        interviewer_id as interviewer_user_id,
+        scheduled_interview_id,
+        scorecard_id
+
     from fields
 )
 
