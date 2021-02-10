@@ -5,7 +5,7 @@
     {"name": "_fivetran_synced", "datatype": dbt_utils.type_timestamp()},
     {"name": "application_id", "datatype": dbt_utils.type_int()},
     {"name": "created_at", "datatype": dbt_utils.type_timestamp()},
-    {"name": "end", "datatype": dbt_utils.type_timestamp()},
+
     {"name": "id", "datatype": dbt_utils.type_int()},
     {"name": "interview_id", "datatype": dbt_utils.type_int()},
     {"name": "location", "datatype": dbt_utils.type_string()},
@@ -14,6 +14,12 @@
     {"name": "status", "datatype": dbt_utils.type_string()},
     {"name": "updated_at", "datatype": dbt_utils.type_timestamp()}
 ] %}
+
+{% if target.type == 'snowflake' %}
+{{ columns.append( {"name": "end", "datatype": dbt_utils.type_timestamp() } ) }}
+{% else %}
+{{ columns.append( {"name": "end", "datatype": dbt_utils.type_timestamp(), "quote": True } ) }}
+{% endif %}
 
 {{ return(columns) }}
 

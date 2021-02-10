@@ -1,7 +1,7 @@
 name: 'greenhouse_source'
 version: '0.1.0'
 config-version: 2
-require-dbt-version: [">=0.18.0", "<0.19.0"]
+require-dbt-version: [">=0.18.0", "<0.20.0"]
 
 
 vars:
@@ -24,8 +24,11 @@ vars:
     job_opening: "{{ source('greenhouse', 'job_opening') }}" 
     job_post: "{{ source('greenhouse', 'job_post') }}" 
     job_stage: "{{ source('greenhouse', 'job_stage') }}" 
-    office: "{{ source('greenhouse', 'job_application') }}" 
+    job_application: "{{ source('greenhouse', 'job_application') }}" 
+    office: "{{ source('greenhouse', 'office') }}" 
     phone_number: "{{ source('greenhouse', 'phone_number') }}" 
+    prospect_pool: "{{ source('greenhouse', 'prospect_pool') }}" 
+    prospect_stage: "{{ source('greenhouse', 'prospect_stage') }}" 
     scheduled_interview: "{{ source('greenhouse', 'scheduled_interview') }}" 
     scheduled_interviewer: "{{ source('greenhouse', 'scheduled_interviewer') }}" 
     scorecard: "{{ source('greenhouse', 'scorecard') }}" 
@@ -37,12 +40,9 @@ vars:
     user_email: "{{ source('greenhouse', 'user_email') }}" 
     website_address: "{{ source('greenhouse', 'website_address') }}" 
   
-  greenhouse_application_custom_columns: ['custom_what_is_your_preferred_pronoun_', 'custom_how_did_you_hear_about_fivetran_']
   greenhouse_using_eeoc: true
   greenhouse_using_app_history: true
   greenhouse_using_prospects: true
 
 models: 
-  materialized: table # for building the package, switch to views later? 
-
-profile: fivetran
+  materialized: table # for now

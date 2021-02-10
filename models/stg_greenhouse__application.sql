@@ -15,6 +15,11 @@ fields as (
                 staging_columns=get_application_columns()
             )
         }}
+    
+        {% if var('greenhouse_application_custom_columns', []) != [] %}
+        ,
+        {{ var('greenhouse_application_custom_columns', [] )  | join(', ') }}
+        {% endif %}
         
     from base
 ),
@@ -40,7 +45,7 @@ final as (
         source_id,
         status
 
-        {% if var('greenhouse_application_custom_columns') %}
+        {% if var('greenhouse_application_custom_columns', []) != [] %}
         ,
         {{ var('greenhouse_application_custom_columns', [] )  | join(', ') }}
         {% endif %}

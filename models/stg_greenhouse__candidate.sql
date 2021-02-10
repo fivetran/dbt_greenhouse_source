@@ -16,6 +16,11 @@ fields as (
             )
         }}
         
+        {% if var('greenhouse_candidate_custom_columns', []) != [] %}
+        ,
+        {{ var('greenhouse_candidate_custom_columns', [] )  | join(', ') }}
+        {% endif %}
+
     from base
 ),
 
@@ -37,7 +42,7 @@ final as (
         title as current_title,
         updated_at as last_updated_at
 
-        {% if var('greenhouse_candidate_custom_columns') %}
+        {% if var('greenhouse_candidate_custom_columns', []) != [] %}
         ,
         {{ var('greenhouse_candidate_custom_columns', [] )  | join(', ') }}
         {% endif %}

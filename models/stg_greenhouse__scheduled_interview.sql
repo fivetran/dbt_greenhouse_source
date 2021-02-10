@@ -25,7 +25,14 @@ final as (
         _fivetran_synced,
         application_id,
         created_at,
-        end as end_at,
+        {%- if target.type == 'bigquery' %}
+        `end` 
+        {% elif target.type == 'redshift' %} 
+        "end" 
+        {% else %}
+        end 
+        {%- endif -%}
+        as end_at,
         id as scheduled_interview_id,
         interview_id,
         location,

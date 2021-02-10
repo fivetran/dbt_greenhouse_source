@@ -22,7 +22,7 @@ fields as (
 final as (
     
     select 
-        _fivetran_synced.
+        _fivetran_synced,
         content,
         created_at,
         external as is_external,

@@ -44,4 +44,6 @@ sources:
       - name: user
       - name: user_email
       - name: website_address
+      - name: prospect_pool
+      - name: prospect_stage
          

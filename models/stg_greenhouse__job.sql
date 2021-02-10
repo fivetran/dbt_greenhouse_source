@@ -15,6 +15,11 @@ fields as (
                 staging_columns=get_job_columns()
             )
         }}
+
+        {% if var('greenhouse_job_custom_columns', []) != [] %}
+        ,
+        {{ var('greenhouse_job_custom_columns', [] )  | join(', ') }}
+        {% endif %}
         
     from base
 ),
@@ -33,7 +38,7 @@ final as (
         status,
         updated_at as last_updated_at
         
-        {% if var('greenhouse_job_custom_columns') %}
+        {% if var('greenhouse_job_custom_columns', []) != [] %}
         ,
         {{ var('greenhouse_job_custom_columns', [] )  | join(', ') }}
         {% endif %}

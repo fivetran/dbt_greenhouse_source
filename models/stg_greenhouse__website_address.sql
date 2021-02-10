@@ -25,7 +25,7 @@ final as (
         _fivetran_synced,
         candidate_id,
         index,
-        type as site_type
+        type as site_type,
         value as url
 
     from fields
