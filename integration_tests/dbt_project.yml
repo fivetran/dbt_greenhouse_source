@@ -195,7 +195,7 @@ seeds:
         organizer_id: "{{ 'int64' if target.type == 'bigquery' else 'bigint' }}"
         created_at: timestamp
         end: timestamp
-        start: timestamp
+        # start: timestamp
         updated_at: timestamp
       +enabled: "{{ true if target.type == 'snowflake' else false }}"
     scheduled_interviewer:

@@ -33,10 +33,15 @@ sources:
         description: Table capturing all applications (candidates + prospects).
         columns:
           - name: _fivetran_deleted
+            description: Boolean that is true if the application has been soft-deleted from Greenhouse.
           - name: applied_at
+            description: Timestamp of when the application was submitted. 
           - name: candidate_id
+            description: Foreign key referencing the CANDIDATE who submitted the application.
           - name: credited_to_user_id
+            description: Foreign key referencing the USER who will receive credit for this application.
           - name: current_stage_id
+            description: Foreign key referencing the JOB_STAGE 
           - name: id
           - name: is_deleted
           - name: last_activity_at
