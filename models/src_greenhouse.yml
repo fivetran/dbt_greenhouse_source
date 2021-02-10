@@ -19,11 +19,15 @@ sources:
           - name: body
             description: Content of the activity taken. 
           - name: candidate_id
-            description: Foreign key referencing the 
+            description: Foreign key referencing the CANDIDATE whose profile was acted upon. 
           - name: created_at
+            description: Timestamp of when the activity occurred.
           - name: id
+            description: The internal Greenhouse ID of the activity feed note.
           - name: subject
+            description: Subject of the activity.
           - name: user_id
+            description: Foreign key referencing the USER 
 
       - name: application
       - name: application_qna
