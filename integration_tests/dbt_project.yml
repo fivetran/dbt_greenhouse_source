@@ -184,6 +184,7 @@ seeds:
         end: timestamp
         start: timestamp
         updated_at: timestamp
+      +quote_columns: "{{ true if target.type == 'redshift' else false }}"
     scheduled_interviewer:
       +column_types:
         interviewer_id: "{{ 'int64' if target.type == 'bigquery' else 'bigint' }}"
