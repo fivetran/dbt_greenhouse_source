@@ -52,7 +52,7 @@ final as (
 
     from fields
 
-    where not coalesce(_fivetran_deleted, is_deleted, false)
+    where not coalesce(_fivetran_deleted, false)
 )
 
 select * from final
