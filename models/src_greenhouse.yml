@@ -17,7 +17,9 @@ sources:
         description: Table capturing lists of activities on a candidate’s profile, including interviews, notes, and emails.
         colunns:
           - name: body
+            description: Content of the activity taken. 
           - name: candidate_id
+            description: Foreign key referencing the 
           - name: created_at
           - name: id
           - name: subject
