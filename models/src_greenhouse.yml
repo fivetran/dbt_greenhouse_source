@@ -14,6 +14,15 @@ sources:
 
     tables:
       - name: activity
+        description: Table capturing lists of activities on a candidate’s profile, including interviews, notes, and emails.
+        colunns:
+          - name: body
+          - name: candidate_id
+          - name: created_at
+          - name: id
+          - name: subject
+          - name: user_id
+
       - name: application
       - name: application_qna
       - name: application_history

@@ -71,6 +71,7 @@ seeds:
         rejected_reason_id: "{{ 'int64' if target.type == 'bigquery' else 'bigint' }}"
         source_id: "{{ 'int64' if target.type == 'bigquery' else 'bigint' }}"
         rejected_at: timestamp
+        is_deleted: boolean
     application_history:
       +column_types:
         updated_at: timestamp
