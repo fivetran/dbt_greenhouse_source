@@ -29,7 +29,7 @@ vars:
     phone_number: "{{ ref('phone_number') }}" 
     prospect_pool: "{{ ref('prospect_pool') }}" 
     prospect_stage: "{{ ref('prospect_stage') }}" 
-    scheduled_interview: "{{ ref('scheduled_interview') }}" 
+    scheduled_interview: "{{ fivetran_utils.snowflake_seed_data('scheduled_interview') }}" 
     scheduled_interviewer: "{{ ref('scheduled_interviewer') }}" 
     scorecard: "{{ ref('scorecard') }}" 
     scorecard_attribute: "{{ ref('scorecard_attribute') }}" 
@@ -186,6 +186,18 @@ seeds:
         start: timestamp
         updated_at: timestamp
       +quote_columns: "{{ true if target.type == 'redshift' else false }}"
+      +enabled: "{{ true if target.type != 'snowflake' else false }}"
+    scheduled_interview_snowflake:
+      +column_types:
+        id: "{{ 'int64' if target.type == 'bigquery' else 'bigint' }}"
+        application_id: "{{ 'int64' if target.type == 'bigquery' else 'bigint' }}"
+        interview_id: "{{ 'int64' if target.type == 'bigquery' else 'bigint' }}"
+        organizer_id: "{{ 'int64' if target.type == 'bigquery' else 'bigint' }}"
+        created_at: timestamp
+        end: timestamp
+        start: timestamp
+        updated_at: timestamp
+      +enabled: "{{ true if target.type == 'snowflake' else false }}"
     scheduled_interviewer:
       +column_types:
         interviewer_id: "{{ 'int64' if target.type == 'bigquery' else 'bigint' }}"

@@ -27,9 +27,29 @@ sources:
           - name: subject
             description: Subject of the activity.
           - name: user_id
-            description: Foreign key referencing the USER 
+            description: Foreign key referencing the USER who performed the activity. 
 
       - name: application
+        description: Table capturing all applications (candidates + prospects).
+        columns:
+          - name: _fivetran_deleted
+          - name: applied_at
+          - name: candidate_id
+          - name: credited_to_user_id
+          - name: current_stage_id
+          - name: id
+          - name: is_deleted
+          - name: last_activity_at
+          - name: location_address
+          - name: prospect
+          - name: prospect_owner_id
+          - name: prospect_pool_id
+          - name: prospect_stage_id
+          - name: rejected_at
+          - name: rejected_reason_id
+          - name: source_id
+          - name: status
+   
       - name: application_qna
       - name: application_history
       - name: attachment

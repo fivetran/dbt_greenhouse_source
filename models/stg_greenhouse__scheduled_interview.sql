@@ -37,7 +37,14 @@ final as (
         interview_id,
         location,
         organizer_id as organizer_user_id,
-        start as start_at,
+
+        {%- if target.type == 'snowflake' %}
+        "START"
+        {% else %}
+        start 
+        {%- endif -%}
+        as start_at,
+        
         status,
         updated_at as last_updated_at
         
