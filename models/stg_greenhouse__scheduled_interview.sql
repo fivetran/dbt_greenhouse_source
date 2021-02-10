@@ -42,7 +42,7 @@ final as (
         "START"
         {% else %}
         start 
-        {%- endif -%}
+        {% endif %}
         as start_at,
         
         status,
