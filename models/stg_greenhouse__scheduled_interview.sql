@@ -39,7 +39,7 @@ final as (
         organizer_id as organizer_user_id,
 
         {%- if target.type == 'snowflake' %}
-        "START"
+        "START" 
         {% else %}
         start 
         {% endif %}

@@ -41,13 +41,20 @@ sources:
           - name: credited_to_user_id
             description: Foreign key referencing the USER who will receive credit for this application.
           - name: current_stage_id
-            description: Foreign key referencing the JOB_STAGE 
+            description: Foreign key referencing the JOB_STAGE that the application is currently at in the pipeline. 
           - name: id
+            description: Unique ID of the application.
           - name: is_deleted
           - name: last_activity_at
+            description: Timestamp of when the last activity was taken on this application. 
           - name: location_address
+            description: The content of the address question on a job post.
           - name: prospect
+            description: >
+              Boolean that is true if this is a prospect application, which means that the associated person 
+              is a prospect and has not yet applied for this job.
           - name: prospect_owner_id
+            description: 
           - name: prospect_pool_id
           - name: prospect_stage_id
           - name: rejected_at
