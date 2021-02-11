@@ -17,7 +17,7 @@
 
 {% if target.type == 'snowflake' %}
 {{ columns.append( {"name": "end", "datatype": dbt_utils.type_timestamp() } ) }}
-{{ columns.append( {"name": "start", "datatype": dbt_utils.type_timestamp(), "quote": TRUE } ) }}
+{{ columns.append( {"name": "start", "datatype": dbt_utils.type_timestamp(), "quote": True } ) }}
 {% else %}
 {{ columns.append( {"name": "end", "datatype": dbt_utils.type_timestamp(), "quote": True } ) }}
 {{ columns.append( {"name": "start", "datatype": dbt_utils.type_timestamp() } ) }}
