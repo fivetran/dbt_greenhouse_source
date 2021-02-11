@@ -31,7 +31,7 @@ final as (
         "end" 
         {% else %}
         end 
-        {%- endif -%}
+        {% endif %}
         as end_at,
         id as scheduled_interview_id,
         interview_id,
