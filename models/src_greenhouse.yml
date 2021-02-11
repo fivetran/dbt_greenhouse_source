@@ -54,7 +54,6 @@ sources:
               Boolean that is true if this is a prospect application, which means that the associated person 
               is a prospect and has not yet applied for this job.
           - name: prospect_owner_id
-            description: 
           - name: prospect_pool_id
           - name: prospect_stage_id
           - name: rejected_at
