@@ -1,0 +1,41 @@
+version: 2
+
+models:
+  - name: stg_greenhouse__activity
+    description: Table capturing lists of activities on a candidate’s profile, including interviews, notes, and emails.
+
+  - name: stg_greenhouse__application
+    description: Table capturing all applications (candidates + prospects).
+
+  - name: stg_greenhouse__application_qna
+  - name: stg_greenhouse__application_history
+  - name: stg_greenhouse__attachment
+  - name: stg_greenhouse__candidate
+  - name: stg_greenhouse__candidate_tag
+  - name: stg_greenhouse__close_reason
+  - name: stg_greenhouse__eeoc
+  - name: stg_greenhouse__email_address
+  - name: stg_greenhouse__hiring_team
+  - name: stg_greenhouse__interview
+  - name: stg_greenhouse__job
+  - name: stg_greenhouse__job_application
+  - name: stg_greenhouse__job_department 
+  - name: stg_greenhouse__job_office
+  - name: stg_greenhouse__job_opening
+  - name: stg_greenhouse__job_post 
+  - name: stg_greenhouse__job_stage
+  - name: stg_greenhouse__office
+  - name: stg_greenhouse__phone_number
+  - name: stg_greenhouse__scheduled_interview
+  - name: stg_greenhouse__scheduled_interviewer
+  - name: stg_greenhouse__scorecard
+  - name: stg_greenhouse__scorecard_attribute
+  - name: stg_greenhouse__social_media_address
+  - name: stg_greenhouse__source
+  - name: stg_greenhouse__tag
+  - name: stg_greenhouse__user
+  - name: stg_greenhouse__user_email
+  - name: stg_greenhouse__website_address
+  - name: stg_greenhouse__prospect_pool
+  - name: stg_greenhouse__prospect_stage
+      
