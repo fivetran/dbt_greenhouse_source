@@ -11,6 +11,7 @@ vars:
     application_qna: "{{ source('greenhouse', 'application_qna') }}" 
     application_history: "{{ source('greenhouse', 'application_history') }}" 
     attachment: "{{ source('greenhouse', 'attachment') }}" 
+    department: "{{ source('greenhouse', 'department') }}" 
     candidate: "{{ source('greenhouse', 'candidate') }}" 
     candidate_tag: "{{ source('greenhouse', 'candidate_tag') }}" 
     close_reason: "{{ source('greenhouse', 'close_reason') }}" 
@@ -46,3 +47,5 @@ vars:
 
 models: 
   materialized: table # for now
+  tmp:
+    materialized: view

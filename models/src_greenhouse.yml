@@ -67,6 +67,7 @@ sources:
       - name: candidate
       - name: candidate_tag
       - name: close_reason
+      - name: department
       - name: eeoc
       - name: email_address
       - name: hiring_team

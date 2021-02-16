@@ -101,6 +101,10 @@ seeds:
     close_reason:
       +column_types:
         id: "{{ 'int64' if target.type == 'bigquery' else 'bigint' }}"
+    department:
+      +column_types:
+        id: "{{ 'int64' if target.type == 'bigquery' else 'bigint' }}"
+        parent_id: "{{ 'int64' if target.type == 'bigquery' else 'bigint' }}"
     eeoc:
       +column_types:
         application_id: "{{ 'int64' if target.type == 'bigquery' else 'bigint' }}"
