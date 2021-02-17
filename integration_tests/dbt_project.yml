@@ -14,6 +14,7 @@ vars:
     candidate: "{{ ref('candidate') }}" 
     candidate_tag: "{{ ref('candidate_tag') }}" 
     close_reason: "{{ ref('close_reason') }}" 
+    department: "{{ ref('department') }}" 
     eeoc: "{{ ref('eeoc') }}" 
     email_address: "{{ ref('email_address') }}" 
     hiring_team: "{{ ref('hiring_team') }}" 
