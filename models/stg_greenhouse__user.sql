@@ -26,9 +26,8 @@ final as (
         created_at,
         disabled as is_disabled,
         employee_id, -- external
-        first_name,
+        first_name || ' ' || last_name as full_name,
         id as user_id,
-        last_name,
         site_admin as is_site_admin,
         updated_at as last_updated_at
 
