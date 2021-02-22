@@ -54,19 +54,44 @@ sources:
               Boolean that is true if this is a prospect application, which means that the associated person 
               is a prospect and has not yet applied for this job.
           - name: prospect_owner_id
+            description: Foreign key referencing the USER ID of the prospect owner.
           - name: prospect_pool_id
+            description: Foreign key referencing the PROSPECT_POOL that the application came from.
           - name: prospect_stage_id
+            description: Foreign key referencing the ID of the application's PROSPECT_POOL_STAGE.
           - name: rejected_at
+            description: Timestamp of when the application was rejected. 
           - name: rejected_reason_id
+            description: Foreign key referencing the REJECTION_REASON for the application.
           - name: source_id
+            description: Foreign key referencing the ID of the SOURCE of the application.
           - name: status
+            description: One of - active, rejected, hired.
    
-      - name: application_qna
+
       - name: application_history
+        description: Table capturing the history of applications as they advance through job stages.
+        columns: 
+          - name: application_id
+            description: Foreign key referencing the APPLICATION that was updated.
+          - name: new_stage_id
+            description: Foreign key referencing the JOB_STAGE that the application was advanced to.
+          - name: new_status
+            description: Status of the application as of this updated. 
+          - name: updated_at
+            description: Timestamp of when the application was advanced.
+
       - name: attachment
+        description: Table capturing files attached to the candidate profile.
+        columns:
+          - name: candidate_id
+            description: Foreign key referencing the CANDIDATE who uploaded the attachment.
+          - name: filename
+          - name: index
+          - name: type
+          - name: url
       - name: candidate
       - name: candidate_tag
-      - name: close_reason
       - name: department
       - name: eeoc
       - name: email_address
@@ -90,7 +115,6 @@ sources:
       - name: tag
       - name: user
       - name: user_email
-      - name: website_address
       - name: prospect_pool
       - name: prospect_stage
          

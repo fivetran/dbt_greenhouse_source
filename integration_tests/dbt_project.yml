@@ -8,12 +8,10 @@ vars:
   greenhouse_source:
     activity: "{{ ref('activity') }}" 
     application: "{{ ref('application') }}" 
-    application_qna: "{{ ref('application_qna') }}" 
     application_history: "{{ ref('application_history') }}" 
     attachment: "{{ ref('attachment') }}" 
     candidate: "{{ ref('candidate') }}" 
     candidate_tag: "{{ ref('candidate_tag') }}" 
-    close_reason: "{{ ref('close_reason') }}" 
     department: "{{ ref('department') }}" 
     eeoc: "{{ ref('eeoc') }}" 
     email_address: "{{ ref('email_address') }}" 
@@ -39,7 +37,6 @@ vars:
     tag: "{{ ref('tag') }}" 
     user: "{{ ref('user') }}" 
     user_email: "{{ ref('user_email') }}" 
-    website_address: "{{ ref('website_address') }}" 
 
   greenhouse_application_custom_columns: ['custom_what_is_your_preferred_pronoun_', 'custom_how_did_you_hear_about_fivetran_']
   greenhouse_job_custom_columns: ['custom_employment_type', 'custom_stock_options']
@@ -78,10 +75,6 @@ seeds:
         updated_at: timestamp
         application_id: "{{ 'int64' if target.type == 'bigquery' else 'bigint' }}"
         new_stage_id: "{{ 'int64' if target.type == 'bigquery' else 'bigint' }}"
-    application_qna:
-      +column_types:
-        application_id: "{{ 'int64' if target.type == 'bigquery' else 'bigint' }}"
-        index: "{{ 'int64' if target.type == 'bigquery' else 'bigint' }}"
     attachment:
       +column_types:
         candidate_id: "{{ 'int64' if target.type == 'bigquery' else 'bigint' }}"
@@ -99,9 +92,6 @@ seeds:
       +column_types:
         candidate_id: "{{ 'int64' if target.type == 'bigquery' else 'bigint' }}"
         tag_id: "{{ 'int64' if target.type == 'bigquery' else 'bigint' }}"
-    close_reason:
-      +column_types:
-        id: "{{ 'int64' if target.type == 'bigquery' else 'bigint' }}"
     department:
       +column_types:
         id: "{{ 'int64' if target.type == 'bigquery' else 'bigint' }}"
@@ -241,8 +231,4 @@ seeds:
     user_email:
       +column_types:
         user_id: "{{ 'int64' if target.type == 'bigquery' else 'bigint' }}"
-    website_address:
-      +column_types:
-        candidate_id: "{{ 'int64' if target.type == 'bigquery' else 'bigint' }}"
-        index: "{{ 'int64' if target.type == 'bigquery' else 'bigint' }}"
 

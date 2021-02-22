@@ -8,13 +8,11 @@ vars:
   greenhouse_source:
     activity: "{{ source('greenhouse', 'activity') }}" 
     application: "{{ source('greenhouse', 'application') }}" 
-    application_qna: "{{ source('greenhouse', 'application_qna') }}" 
     application_history: "{{ source('greenhouse', 'application_history') }}" 
     attachment: "{{ source('greenhouse', 'attachment') }}" 
     department: "{{ source('greenhouse', 'department') }}" 
     candidate: "{{ source('greenhouse', 'candidate') }}" 
     candidate_tag: "{{ source('greenhouse', 'candidate_tag') }}" 
-    close_reason: "{{ source('greenhouse', 'close_reason') }}" 
     eeoc: "{{ source('greenhouse', 'eeoc') }}" 
     email_address: "{{ source('greenhouse', 'email_address') }}" 
     hiring_team: "{{ source('greenhouse', 'hiring_team') }}" 
@@ -39,13 +37,13 @@ vars:
     tag: "{{ source('greenhouse', 'tag') }}" 
     user: "{{ source('greenhouse', 'user') }}" 
     user_email: "{{ source('greenhouse', 'user_email') }}" 
-    website_address: "{{ source('greenhouse', 'website_address') }}" 
   
   greenhouse_using_eeoc: true
   greenhouse_using_app_history: true
   greenhouse_using_prospects: true
 
 models: 
-  materialized: table # for now
-  tmp:
-    materialized: view
+  greenhouse_source:
+    +materialized: table # for now
+    tmp:
+      +materialized: view
