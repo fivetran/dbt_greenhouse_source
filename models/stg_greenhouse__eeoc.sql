@@ -22,8 +22,20 @@ fields as (
 
 final as (
     
-    select *
-
+    select 
+        _fivetran_synced,
+        application_id,
+        disability_status_description,
+        disability_status_id,
+        gender_description,
+        gender_id,
+        race_description,
+        race_id,
+        submitted_at,
+        veteran_status_description,
+        veteran_status_id,
+        veteran_status_message
+        
     from fields
 )
 

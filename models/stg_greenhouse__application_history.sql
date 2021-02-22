@@ -22,7 +22,13 @@ fields as (
 
 final as (
     
-    select *
+    select 
+        _fivetran_synced,
+        application_id,
+        new_stage_id,
+        new_status,
+        updated_at
+        
     from fields
 )
 

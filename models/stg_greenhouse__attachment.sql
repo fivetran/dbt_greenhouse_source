@@ -21,7 +21,14 @@ fields as (
 
 final as (
     
-    select *
+    select 
+        _fivetran_synced,
+        candidate_id,
+        filename,
+        index,
+        type,
+        url
+
     from fields
 )
 

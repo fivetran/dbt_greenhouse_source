@@ -21,7 +21,10 @@ fields as (
 
 final as (
     
-    select *
+    select 
+        _fivetran_synced,
+        application_id,
+        job_id
     from fields
 )
 
