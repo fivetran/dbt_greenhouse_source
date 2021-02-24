@@ -11,8 +11,7 @@
     {"name": "race_id", "datatype": dbt_utils.type_int()},
     {"name": "submitted_at", "datatype": dbt_utils.type_timestamp()},
     {"name": "veteran_status_description", "datatype": dbt_utils.type_string()},
-    {"name": "veteran_status_id", "datatype": dbt_utils.type_int()},
-    {"name": "veteran_status_message", "datatype": dbt_utils.type_string()}
+    {"name": "veteran_status_id", "datatype": dbt_utils.type_int()}
 ] %}
 
 {{ return(columns) }}

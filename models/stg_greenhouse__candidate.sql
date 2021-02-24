@@ -36,7 +36,6 @@ final as (
         is_private,
         last_activity as last_activity_at,
         new_candidate_id,
-        photo_url,
         recruiter_id as recruiter_user_id,
         title as current_title,
         updated_at as last_updated_at

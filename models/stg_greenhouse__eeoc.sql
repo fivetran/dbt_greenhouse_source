@@ -33,8 +33,7 @@ final as (
         race_id,
         submitted_at,
         veteran_status_description,
-        veteran_status_id,
-        veteran_status_message
+        veteran_status_id
         
     from fields
 )

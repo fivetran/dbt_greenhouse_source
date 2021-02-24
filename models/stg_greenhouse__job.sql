@@ -28,7 +28,7 @@ final as (
     
     select 
         _fivetran_synced,
-        closed_at,
+        closed_at as last_opening_closed_at,
         confidential as is_confidential,
         created_at,
         id as job_id,

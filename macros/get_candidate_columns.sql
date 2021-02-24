@@ -12,7 +12,6 @@
     {"name": "last_activity", "datatype": dbt_utils.type_timestamp()},
     {"name": "last_name", "datatype": dbt_utils.type_string()},
     {"name": "new_candidate_id", "datatype": dbt_utils.type_int()},
-    {"name": "photo_url", "datatype": dbt_utils.type_string()},
     {"name": "recruiter_id", "datatype": dbt_utils.type_int()},
     {"name": "title", "datatype": dbt_utils.type_string()},
     {"name": "updated_at", "datatype": dbt_utils.type_timestamp()}
