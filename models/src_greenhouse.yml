@@ -318,18 +318,188 @@ sources:
             description: Name of the job stage.
           - name: updated_at
             description: Timestamp of when the job stage was last updated. 
-            
+
       - name: office
+        description: Table capturing an organization's offices. 
+        columns:
+          - name: external_id
+            description: An arbitrary ID provided by an external source; does not map to another entity in Greenhouse.
+          - name: id
+            description: Unique ID of the office.
+          - name: location_name
+            description: The office's location.
+          - name: name
+            description: The office’s name.
+          - name: parent_id
+            description: Self-referencing id of the office's parent office. 
+          - name: primary_contact_user_id
+            description: >
+              Foreign key referencing the id of the USER who will be the primary in-house contact for 
+              this office. This user must be a site-admin.
+
       - name: phone_number
+        description: Table capturing phone numbers associated with candidates. 
+        columns:
+          - name: candidate_id
+            description: Foreign key referencing the CANDIDATE with this phone.
+          - name: index
+            description: Index of the phone number amongst phone numbers associated with this candidate.
+          - name: type
+            description: Type of phone.
+          - name: value
+            description: Candidate's phone number. 
+
       - name: scheduled_interview
+        description: Table storing interviews that have been scheduled for the specified application.
+        columns: 
+          - name: application_id
+            description: Foreign key referencing the APPLICATION that is being interviewed.
+          - name: created_at
+            description: Timestamp of when the interview was created. 
+          - name: end
+            description: Timestamp of when the interview is scheduled to end. Will be a date if the interview is all-day.
+          - name: id
+            description: Unique ID of the scheduled interview.
+          - name: interview_id
+            description: Foreign key referencing the id of the generic INTERVIEW step that this scheduled interview maps to. 
+          - name: location
+            description: The location of the interview.
+          - name: organizer_id
+            description: Foreign key referencing the USER who organized the interview.
+          - name: start
+            description: Timestamp of when the interview is scheduled to start. Will be a date if the interview is all-day.
+          - name: status
+            description: One of - scheduled, awaiting_feedback, complete.
+          - name: updated_at
+            description: Timestamp of when the interview was last updated.
+   
       - name: scheduled_interviewer
+        description: Table storing relating users to interviews they partook in.
+        columns:
+          - name: interviewer_id
+            description: Foreign key referencing the INTERVIEW step being performed.
+          - name: scheduled_interview_id
+            description: Foreign key referencing the specific candidate's SCHEDULED_INTERVIEW id.
+          - name: scorecard_id
+            description: Foreign key referencing the SCORECARD associated with this interviewer's feedback. 
+
       - name: scorecard
+        description: All submitted scorecards for candidate interviews.
+        columns:
+          - name: application_id
+            description: Foreign key referencing the APPLICATION for which the scorecard was submitted.
+          - name: candidate_id
+            description: Foreign key referencing the CANDIDATE who was interviewed and scored.
+          - name: created_at
+            description: Timestamp of when the scorecard was created.
+          - name: id
+            description: Unique ID of the scorecard.
+          - name: interview
+            description: Title of the interview. 
+          - name: interviewed_at
+            description: Timestamp of when the interview begun. 
+          - name: overall_recommendation
+            description: One of - definitely_not, no, yes, strong_yes, no_decision.
+          - name: submitted_at
+            description: Timestamp of when the scorecard was submitted.
+          - name: submitted_by_user_id
+            description: Foreign key referencing the USER who submitted the scorecard.
+          - name: updated_at 
+            description: Timestamp of when the scorecard was last updated.
+
       - name: scorecard_attribute
+        description: Table capturing ratings along individual standards within each scorecard. 
+        columns:
+          - name: index
+            description: Index of this rating/standard amongst the attributes of this scorecard.
+          - name: name
+            description: Name of the scorecard attribute. 
+          - name: note
+            description: Additional from the interviewer regarding the attribute score. 
+          - name: rating
+            description: Rating given to the candidate along this individual scorecard attribute. 
+          - name: scorecard_id
+            description: Foreign key referencing the SCORECARD this attribute rating belongs to.
+          - name: type
+            description: Category of the attribute. 
+
       - name: social_media_address
+        description: Table capturing social media links (ie linkedin, github) provided by candidates. 
+        columns:
+          - name: candidate_id
+            description: Foreign key referencing the CANDIDATE associated with these links.
+          - name: index
+            description: Index of the social media link amongst the candidate's stored links.
+          - name: value
+            description: The candidate's social media link. 
+
       - name: source
+        description: Table capturing an organization's applicant sources.
+        columns:
+          - name: id
+            description: Unique ID of the source. 
+          - name: name
+            description: Name of the source.
+          - name: source_type_id
+            description: ID of the category of source. 
+          - name: source_type_name
+            description: >
+              Name of the source category. One of - attend_events, referrals, third_party_boards, 
+              candidate_search, other, social_media, company_marketing, agencies, prospecting.
+
       - name: tag
+        description: Table storing candidate tags. 
+        columns:
+          - name: id
+            description: Unique ID of the tag. 
+          - name: name 
+            description: Title of the tag as it appears in the UI.
+
       - name: user
+        description: Table of an organization's Greenhouse users. 
+        columns:
+          - name: created_at
+            description: Timestamp of when the user was created.
+          - name: disabled
+            description: Boolean that is true if the user account has been disabled.
+          - name: employee_id 
+            description: The user’s external employee id.
+          - name: first_name
+            description: User's first name. 
+          - name: last_name
+            description: User's last name. 
+          - name: id
+            description: Unique ID of the user. 
+          - name: site_admin
+            description: If true, this user is a site admin, which means the user has full permissions on all non-private jobs.
+          - name: updated_at
+            description: Timestamp of when the user was updated. 
+
       - name: user_email
+        description: Table associating Greenhouse users with their emails. 
+        columns:
+          - name: email
+            description: User's email.
+          - name: user_id
+            description: Foreign key referencing the USER who has this email. 
+
       - name: prospect_pool
+        description: Table capturing prospect pool groups. 
+        columns:
+          - name: active
+            description: Boolean that is false if the pool is hidden from view in Greenhouse.
+          - name: id
+            description: Unique ID of the prospect pool.
+          - name: name
+            description: Name given to the prospect pool. 
+
       - name: prospect_stage
-         
+        description: Table capturing stages prospects in different pools advance through. 
+        columns:
+          - name: id
+            description: Unique id of the prospect stage. 
+          - name: name
+            description: Name of the prospect stage. 
+          - name: prospect_pool_id
+            description: Foreign key referencing the PROSPECT_POOL the stage belongs to.
+        
