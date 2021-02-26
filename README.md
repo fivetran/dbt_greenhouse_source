@@ -1,6 +1,6 @@
 # Greenhouse Source (docs)
 
-This package models Greenhouse data from [Fivetran's connector](https://fivetran.com/docs/applications/greenhouse). It uses data in the format described by [this ERD](https://fivetran.com/docs/applications/greenhouse#schemainformation).
+This package models Greenhouse recruiting data from [Fivetran's connector](https://fivetran.com/docs/applications/greenhouse). It uses data in the format described by [this ERD](https://fivetran.com/docs/applications/greenhouse#schemainformation).
 
 This package enriches your Fivetran data by doing the following:
 * Adds descriptions to tables and columns that are synced using Fivetran
@@ -35,7 +35,7 @@ vars:
 ```
 
 ### Passing Through Custom Columns
-The Greenhouse `APPLICATION`, `JOB`, AND `CANDIDATE` tables may all have custom columns, all prefixed with `custom_field_`. To pass these columns along to the staging and final transformation models, add the following variables to your `dbt_project.yml` file:
+The Greenhouse `APPLICATION`, `JOB`, and `CANDIDATE` tables may all have custom columns, all prefixed with `custom_field_`. To pass these columns along to the staging and final transformation models, add the following variables to your `dbt_project.yml` file:
 
 ```yml
 # dbt_project.yml
@@ -65,6 +65,8 @@ vars:
     greenhouse_using_eeoc: false # Disable if you do not have EEOC data synced and/or do not want to integrate it into the package models
     greenhouse_using_app_history: false # Disable if you do not have APPLICATION_HISTORY synced and/or do not want to run the application_history transform model
 ```
+
+*Note: this package only integrates the above variables. If you'd like to disable other models, please create an issue specifying which ones.*
 
 ## Contributions
 Don't see a model or specific metric you would have liked to be included? Notice any bugs when installing 
