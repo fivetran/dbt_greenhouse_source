@@ -44,6 +44,6 @@ vars:
 
 models: 
   greenhouse_source:
-    +materialized: table # for now
+    +materialized: table
     tmp:
       +materialized: view
