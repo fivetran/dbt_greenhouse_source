@@ -75,7 +75,6 @@ Please create issues or open PRs against `master`. See [the Discourse post](http
 
 ## Database Support
 This package has been tested on BigQuery, Snowflake and Redshift.
-Coming soon -- compatibility with Spark
 
 ## Resources:
 - Provide [feedback](https://www.surveymonkey.com/r/DQ7K7WW) on our existing dbt packages or what you'd like to see next
