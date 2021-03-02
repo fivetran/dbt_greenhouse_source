@@ -1,4 +1,4 @@
-# Greenhouse Source
+# Greenhouse Source ([docs](https://fivetran-dbt-greenhouse.netlify.app/#!/overview))
 
 This package models Greenhouse recruiting data from [Fivetran's connector](https://fivetran.com/docs/applications/greenhouse). It uses data in the format described by [this ERD](https://fivetran.com/docs/applications/greenhouse#schemainformation).
 
