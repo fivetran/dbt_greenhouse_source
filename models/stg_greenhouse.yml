@@ -446,7 +446,7 @@ models:
             - scheduled_interview_id
     columns:
       - name: interviewer_user_id
-        description: Foreign key referencing the INTERVIEW step being performed.
+        description: Foreign key referencing the USER conducting the interview.
       - name: scheduled_interview_id
         description: Foreign key referencing the specific candidate's SCHEDULED_INTERVIEW id.
       - name: scorecard_id
