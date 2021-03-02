@@ -377,7 +377,7 @@ sources:
         description: Table storing relating users to interviews they partook in.
         columns:
           - name: interviewer_id
-            description: Foreign key referencing the INTERVIEW step being performed.
+            description: Foreign key referencing the USER conducting the interview.
           - name: scheduled_interview_id
             description: Foreign key referencing the specific candidate's SCHEDULED_INTERVIEW id.
           - name: scorecard_id
