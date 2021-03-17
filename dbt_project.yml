@@ -1,5 +1,5 @@
 name: 'greenhouse_source'
-version: '0.1.0'
+version: '0.2.0'
 config-version: 2
 require-dbt-version: [">=0.18.0", "<0.20.0"]
 
@@ -41,9 +41,13 @@ vars:
   greenhouse_using_eeoc: true
   greenhouse_using_app_history: true
   greenhouse_using_prospects: true
+  greenhouse_using_job_office: true
+  greenhouse_using_job_department: true
+  
 
 models: 
   greenhouse_source:
     +materialized: table
+    +schema: stg_greenhouse
     tmp:
       +materialized: view
