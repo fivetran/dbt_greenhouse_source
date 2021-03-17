@@ -48,6 +48,6 @@ vars:
 models: 
   greenhouse_source:
     +materialized: table
-    +schema: greenhouse_source
+    +schema: stg_greenhouse
     tmp:
       +materialized: view
