@@ -70,6 +70,19 @@ vars:
 
 *Note: This package only integrates the above variables. If you'd like to disable other models, please create an [issue](https://github.com/fivetran/dbt_greenhouse_source/issues) specifying which ones.*
 
+### Changing the Build Schema
+By default this package will build the Greenhouse Source staging models within a schema titled (<target_schema> + `_greenhouse`). If this is not where you would like your staging models to be written to, add the following configuration to your `dbt_project.yml` file:
+
+```yml
+# dbt_project.yml
+
+...
+models:
+    greenhouse_source:
+        +schema: my_new_staging_models_schema # leave blank for just the target_schema
+
+```
+
 ## Contributions
 Don't see a model or specific metric you would have liked to be included? Notice any bugs when installing 
 and running the package? If so, we highly encourage and welcome contributions to this package! 
