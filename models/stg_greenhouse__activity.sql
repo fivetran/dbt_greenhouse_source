@@ -25,7 +25,7 @@ final as (
         _fivetran_synced,
         body,
         candidate_id,
-        created_at as occurred_at,
+        cast(created_at as {{ dbt_utils.type_timestamp() }}) as occurred_at,
         id as activity_id,
         subject,
         user_id
