@@ -30,7 +30,7 @@ final as (
         _fivetran_synced,
         company as current_company,
         coordinator_id as coordinator_user_id,
-        created_at,
+        cast(created_at as {{ dbt_utils.type_timestamp() }}) as created_at,
         first_name || ' ' || last_name as full_name,
         id as candidate_id,
         is_private,
