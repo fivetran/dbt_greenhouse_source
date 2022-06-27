@@ -31,7 +31,7 @@ final as (
         gender_id,
         race_description,
         race_id,
-        submitted_at,
+        cast(submitted_at as {{ dbt_utils.type_timestamp() }}) as submitted_at,
         veteran_status_description,
         veteran_status_id
         

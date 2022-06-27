@@ -23,13 +23,13 @@ final as (
     
     select 
         _fivetran_synced,
-        created_at,
+        cast(created_at as {{ dbt_utils.type_timestamp() }}) as created_at,
         disabled as is_disabled,
         employee_id, -- external
         first_name || ' ' || last_name as full_name,
         id as user_id,
         site_admin as is_site_admin,
-        updated_at as last_updated_at
+        cast(updated_at as {{ dbt_utils.type_timestamp() }}) as last_updated_at
 
     from fields
 

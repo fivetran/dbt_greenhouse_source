@@ -30,15 +30,15 @@ final as (
         _fivetran_synced,
         company as current_company,
         coordinator_id as coordinator_user_id,
-        created_at,
+        cast(created_at as {{ dbt_utils.type_timestamp() }}) as created_at,
         first_name || ' ' || last_name as full_name,
         id as candidate_id,
         is_private,
-        last_activity as last_activity_at,
+        cast(last_activity as {{ dbt_utils.type_timestamp() }}) as last_activity_at,
         new_candidate_id,
         recruiter_id as recruiter_user_id,
         title as current_title,
-        updated_at as last_updated_at
+        cast(updated_at as {{ dbt_utils.type_timestamp() }}) as last_updated_at
 
         {% if var('greenhouse_candidate_custom_columns', []) != [] %}
         ,

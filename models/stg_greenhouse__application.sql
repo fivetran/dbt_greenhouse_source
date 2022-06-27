@@ -28,19 +28,19 @@ final as (
     
     select 
         _fivetran_synced,
-        applied_at,
+        cast(applied_at as {{ dbt_utils.type_timestamp() }}) as applied_at,
         candidate_id,
         credited_to_user_id,
         current_stage_id,
         id as application_id,
 
-        last_activity_at,
+        cast(last_activity_at as {{ dbt_utils.type_timestamp() }}) as last_activity_at,
         location_address,
         prospect as is_prospect,
         prospect_owner_id as prospect_owner_user_id,
         prospect_pool_id,
         prospect_stage_id,
-        rejected_at,
+        cast(rejected_at as {{ dbt_utils.type_timestamp() }}) as rejected_at,
         rejected_reason_id,
         source_id,
         status
