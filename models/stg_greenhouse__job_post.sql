@@ -24,7 +24,7 @@ final as (
     select 
         _fivetran_synced,
         content,
-        cast(created_at as {{ dbt_utils.type_timestamp() }}) as created_at,
+        cast(created_at as {{ dbt.type_timestamp() }}) as created_at,
         external as is_external,
         id as job_post_id,
         internal as is_internal,
@@ -33,7 +33,7 @@ final as (
         live as is_live,
         location_name,
         title,
-        cast(updated_at as {{ dbt_utils.type_timestamp() }}) as last_updated_at
+        cast(updated_at as {{ dbt.type_timestamp() }}) as last_updated_at
 
     from fields
 

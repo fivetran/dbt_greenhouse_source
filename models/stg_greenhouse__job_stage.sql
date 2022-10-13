@@ -23,11 +23,11 @@ final as (
     
     select 
         _fivetran_synced,
-        cast(created_at as {{ dbt_utils.type_timestamp() }}) as created_at,
+        cast(created_at as {{ dbt.type_timestamp() }}) as created_at,
         id as job_stage_id,
         job_id,
         name as stage_name,
-        cast(updated_at as {{ dbt_utils.type_timestamp() }}) as last_updated_at
+        cast(updated_at as {{ dbt.type_timestamp() }}) as last_updated_at
 
     from fields
 
