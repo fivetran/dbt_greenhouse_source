@@ -28,7 +28,7 @@ final as (
         cast(
         {%- if target.type == 'bigquery' %}
         `end` 
-        {% elif target.type == 'redshift' %} 
+        {% elif target.type in ('redshift','postgres') %} 
         "end" 
         {% else %}
         end 
