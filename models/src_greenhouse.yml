@@ -14,6 +14,7 @@ sources:
 
     tables:
       - name: activity
+        identifier: "{{ var('greenhouse_activity_identifier', 'activity')}}"
         description: Table capturing lists of activities on a candidate’s profile, including interviews, notes, and emails.
         columns:
           - name: body
@@ -30,6 +31,7 @@ sources:
             description: Foreign key referencing the USER who performed the activity. 
 
       - name: application
+        identifier: "{{ var('greenhouse_application_identifier', 'application')}}"
         description: Table capturing all applications (candidates + prospects).
         columns:
           - name: _fivetran_deleted
@@ -70,6 +72,7 @@ sources:
    
 
       - name: application_history
+        identifier: "{{ var('greenhouse_application_history_identifier', 'application_history')}}"
         description: Table capturing the history of applications as they advance through job stages.
         meta:
           is_enabled: "{{ var('greenhouse_using_app_history', true) }}"
@@ -84,6 +87,7 @@ sources:
             description: Timestamp of when the application was advanced.
 
       - name: attachment
+        identifier: "{{ var('greenhouse_attachment_identifier', 'attachment')}}"
         description: Table capturing files attached to the candidate profile.
         columns:
           - name: candidate_id
@@ -98,6 +102,7 @@ sources:
             description: Url of where the attachment is stored.
 
       - name: candidate
+        identifier: "{{ var('greenhouse_candidate_identifier', 'candidate')}}"
         description: Table capturing an organization's candidates.
         columns:
           - name: _fivetran_deleted
@@ -132,6 +137,7 @@ sources:
             description: Timestamp of when the candidate profile was last updated.
 
       - name: candidate_tag
+        identifier: "{{ var('greenhouse_candidate_tag_identifier', 'candidate_tag')}}"
         description: Table associating candidate's with their attached tags. 
         columns:
           - name: candidate_id
@@ -140,6 +146,7 @@ sources:
             description: Foreign key referencing the TAG attached to this candidate. 
 
       - name: department
+        identifier: "{{ var('greenhouse_department_identifier', 'department')}}"
         description: Table storing an organization's job departments.
         meta:
           is_enabled: "{{ var('greenhouse_using_job_department', true) }}"
@@ -154,6 +161,7 @@ sources:
             description: Self-referencing parent department ID.
 
       - name: eeoc
+        identifier: "{{ var('greenhouse_eeoc_identifier', 'eeoc')}}"
         description: Table capturing EEOC data provided by candidates. 
         meta:
           is_enabled: "{{ var('greenhouse_using_eeoc', true) }}"
@@ -180,6 +188,7 @@ sources:
             description: Foreign key referencing the veteran status' DEMOGRAPHIC_ANSWER_OPTION ID.
 
       - name: email_address
+        identifier: "{{ var('greenhouse_email_address_identifier', 'email_address')}}"
         description: Table storing email addresses associated with candidates. 
         columns:
           - name: candidate_id
@@ -192,6 +201,7 @@ sources:
             description: The candidate's email address.
 
       - name: hiring_team
+        identifier: "{{ var('greenhouse_hiring_team_identifier', 'hiring_team')}}"
         description: Table capturing users and their roles on job hiring teams.
         columns:
           - name: job_id
@@ -202,6 +212,7 @@ sources:
             description: Foreign key referencing the USER who has this role.
 
       - name: interview
+        identifier: "{{ var('greenhouse_interview_identifier', 'interview')}}"
         description: >
           Table capturing the **generic** interview steps associated with each stage of a job. This differs 
           from SCHEDULED_INTERVIEW, which represents these interviews administered to individual candidates.
@@ -216,6 +227,7 @@ sources:
             description: Title of this interview step.
 
       - name: job
+        identifier: "{{ var('greenhouse_job_identifier', 'job')}}"
         description: Table capturing all jobs stored in Greenhouse.
         columns:
           - name: closed_at
@@ -238,6 +250,7 @@ sources:
             description: Timestamp of when the job was last updated. 
 
       - name: job_application
+        identifier: "{{ var('greenhouse_job_application_identifier', 'job_application')}}"
         description: Table relating applications to the jobs they applied to.
         columns:
           - name: application_id
@@ -246,6 +259,7 @@ sources:
             description: Foreign key referencing the JOB that was applied to. 
 
       - name: job_department 
+        identifier: "{{ var('greenhouse_job_department_identifier', 'job_department')}}"
         description: Table relating jobs to the departments they exist in.
         meta:
           is_enabled: "{{ var('greenhouse_using_job_department', true) }}"
@@ -256,6 +270,7 @@ sources:
             description: Foreign key referencing the JOB.
           
       - name: job_office
+        identifier: "{{ var('greenhouse_job_office_identifier', 'job_office')}}"
         description: Table relating jobs to the offices they exist in. 
         meta:
           is_enabled: "{{ var('greenhouse_using_job_office', true) }}"
@@ -266,6 +281,7 @@ sources:
             description: Foreign key referencing the JOB.
 
       - name: job_opening
+        identifier: "{{ var('greenhouse_job_opening_identifier', 'job_opening')}}"
         description: Table capturing openings made for jobs.
         columns:
           - name: application_id
@@ -290,6 +306,7 @@ sources:
             description: Either “open” or “closed”.
 
       - name: job_post 
+        identifier: "{{ var('greenhouse_job_post_identifier', 'job_post')}}"
         description: Table capturing the online job posts for an organization’s jobs (as seen on the Job Board).
         columns:
           - name: content
@@ -316,6 +333,7 @@ sources:
             description: Timestamp of when the job post was last updated. 
 
       - name: job_stage
+        identifier: "{{ var('greenhouse_job_stage_identifier', 'job_stage')}}"
         description: Table capturing each stage of a job's hiring pipeline. 
         columns:
           - name: created_at
@@ -330,6 +348,7 @@ sources:
             description: Timestamp of when the job stage was last updated. 
 
       - name: office
+        identifier: "{{ var('greenhouse_office_identifier', 'office')}}"
         description: Table capturing an organization's offices. 
         meta:
           is_enabled: "{{ var('greenhouse_using_job_office', true) }}"
@@ -350,6 +369,7 @@ sources:
               this office. This user must be a site-admin.
 
       - name: phone_number
+        identifier: "{{ var('greenhouse_phone_number_identifier', 'phone_number')}}"
         description: Table capturing phone numbers associated with candidates. 
         columns:
           - name: candidate_id
@@ -362,6 +382,7 @@ sources:
             description: Candidate's phone number. 
 
       - name: scheduled_interview
+        identifier: "{{ var('greenhouse_scheduled_interview_identifier', 'scheduled_interview')}}"
         description: Table storing interviews that have been scheduled for the specified application.
         columns: 
           - name: application_id
@@ -386,6 +407,7 @@ sources:
             description: Timestamp of when the interview was last updated.
    
       - name: scheduled_interviewer
+        identifier: "{{ var('greenhouse_scheduled_interviewer_identifier', 'scheduled_interviewer')}}"
         description: Table storing relating users to interviews they partook in.
         columns:
           - name: interviewer_id
@@ -420,6 +442,7 @@ sources:
             description: Timestamp of when the scorecard was last updated.
 
       - name: scorecard_attribute
+        identifier: "{{ var('greenhouse_scorecard_attribute_identifier', 'scorecard_attribute')}}"
         description: Table capturing ratings along individual standards within each scorecard. 
         columns:
           - name: index
@@ -436,6 +459,7 @@ sources:
             description: Category of the attribute. 
 
       - name: social_media_address
+        identifier: "{{ var('greenhouse_social_media_address_identifier', 'social_media_address')}}"
         description: Table capturing social media links (ie linkedin, github) provided by candidates. 
         columns:
           - name: candidate_id
@@ -446,6 +470,7 @@ sources:
             description: The candidate's social media link. 
 
       - name: source
+        identifier: "{{ var('greenhouse_source_identifier', 'source')}}"
         description: Table capturing an organization's applicant sources.
         columns:
           - name: id
@@ -460,6 +485,7 @@ sources:
               candidate_search, other, social_media, company_marketing, agencies, prospecting.
 
       - name: tag
+        identifier: "{{ var('greenhouse_tag_identifier', 'tag')}}"
         description: Table storing candidate tags. 
         columns:
           - name: id
@@ -468,6 +494,7 @@ sources:
             description: Title of the tag as it appears in the UI.
 
       - name: user
+        identifier: "{{ var('greenhouse_user_identifier', 'user')}}"
         description: Table of an organization's Greenhouse users. 
         columns:
           - name: created_at
@@ -488,6 +515,7 @@ sources:
             description: Timestamp of when the user was updated. 
 
       - name: user_email
+        identifier: "{{ var('greenhouse_user_email_identifier', 'user_email')}}"
         description: Table associating Greenhouse users with their emails. 
         columns:
           - name: email
@@ -496,6 +524,7 @@ sources:
             description: Foreign key referencing the USER who has this email. 
 
       - name: prospect_pool
+        identifier: "{{ var('greenhouse_prospect_pool_identifier', 'prospect_pool')}}"
         description: Table capturing prospect pool groups. 
         meta:
           is_enabled: "{{ var('greenhouse_using_prospects', true) }}"
@@ -508,6 +537,7 @@ sources:
             description: Name given to the prospect pool. 
 
       - name: prospect_stage
+        identifier: "{{ var('greenhouse_prospect_stage_identifier', 'prospect_stage')}}"
         description: Table capturing stages prospects in different pools advance through. 
         meta:
           is_enabled: "{{ var('greenhouse_using_prospects', true) }}"

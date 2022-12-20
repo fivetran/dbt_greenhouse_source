@@ -25,14 +25,14 @@ final as (
         _fivetran_synced,
         application_id,
         candidate_id,
-        cast(created_at as {{ dbt_utils.type_timestamp() }}) as created_at,
+        cast(created_at as {{ dbt.type_timestamp() }}) as created_at,
         id as scorecard_id,
         interview as interview_name,
-        cast(interviewed_at as {{ dbt_utils.type_timestamp() }}) as interviewed_at,
+        cast(interviewed_at as {{ dbt.type_timestamp() }}) as interviewed_at,
         overall_recommendation,
-        cast(submitted_at as {{ dbt_utils.type_timestamp() }}) as submitted_at,
+        cast(submitted_at as {{ dbt.type_timestamp() }}) as submitted_at,
         submitted_by_user_id,
-        cast(updated_at as {{ dbt_utils.type_timestamp() }}) as last_updated_at
+        cast(updated_at as {{ dbt.type_timestamp() }}) as last_updated_at
 
     from fields
 

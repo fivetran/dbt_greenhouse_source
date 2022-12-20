@@ -25,10 +25,10 @@ final as (
         _fivetran_synced,
         application_id,
         close_reason_id,
-        cast(closed_at as {{ dbt_utils.type_timestamp() }}) as closed_at,
+        cast(closed_at as {{ dbt.type_timestamp() }}) as closed_at,
         id as job_openining_id,
         job_id,
-        cast(opened_at as {{ dbt_utils.type_timestamp() }}) as opened_at,
+        cast(opened_at as {{ dbt.type_timestamp() }}) as opened_at,
         opening_id as opening_text_id,
         status as current_status
 

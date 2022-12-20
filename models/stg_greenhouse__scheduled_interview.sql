@@ -24,16 +24,16 @@ final as (
     select 
         _fivetran_synced,
         application_id,
-        cast(created_at as {{ dbt_utils.type_timestamp() }}) as created_at,
+        cast(created_at as {{ dbt.type_timestamp() }}) as created_at,
         cast(
         {%- if target.type == 'bigquery' %}
         `end` 
-        {% elif target.type == 'redshift' %} 
+        {% elif target.type in ('redshift','postgres') %} 
         "end" 
         {% else %}
         end 
         {% endif %}
-        as {{ dbt_utils.type_timestamp() }}) as end_at,
+        as {{ dbt.type_timestamp() }}) as end_at,
         id as scheduled_interview_id,
         interview_id,
         location,
@@ -45,10 +45,10 @@ final as (
         {% else %}
         start 
         {% endif %}
-        as {{ dbt_utils.type_timestamp() }}) as start_at,
+        as {{ dbt.type_timestamp() }}) as start_at,
         
         status,
-        cast(updated_at as {{ dbt_utils.type_timestamp() }}) as last_updated_at
+        cast(updated_at as {{ dbt.type_timestamp() }}) as last_updated_at
         
     from fields
 
