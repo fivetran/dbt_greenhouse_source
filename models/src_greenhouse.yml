@@ -2,7 +2,7 @@ version: 2
 
 sources:
   - name: greenhouse 
-    database: "{{ var ('greenhouse_database', target.database) }}"
+    database: "{% if target.type != 'spark' %}{{ var('greenhouse_database', target.database)}}{% endif %}"
     schema: "{{ var ('greenhouse_schema', 'greenhouse') }}"
 
     loader: fivetran
