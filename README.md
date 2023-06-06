@@ -24,16 +24,16 @@
 ## Step 1: Prerequisites
 To use this dbt package, you must have the following:
 - At least one Fivetran Greenhouse connector syncing data into your destination. 
-- A **BigQuery**, **Snowflake**, or **Redshift** destination.
+- A **BigQuery**, **Snowflake**, **Redshift**, **PostgreSQL**, or **Databricks** destination.
 
-## Step 2: Install the package
+## Step 2: Install the package (skip if also using the `greenhouse` transformation package)
 Include the following greenhouse_source package version in your `packages.yml` file.
 > TIP: Check [dbt Hub](https://hub.getdbt.com/) for the latest installation instructions or [read the dbt docs](https://docs.getdbt.com/docs/package-management) for more information on installing packages.
 
 ```yaml
 packages:
   - package: fivetran/greenhouse_source
-    version: [">=0.5.0", "<0.6.0"]
+    version: [">=0.6.0", "<0.7.0"] # we recommend using ranges to capture non-breaking changes automatically
 ```
 
 ## Step 3: Define database and schema variables
