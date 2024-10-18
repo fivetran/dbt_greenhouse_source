@@ -1,3 +1,14 @@
+# dbt_greenhouse_source v0.7.0
+[PR #29](https://github.com/fivetran/dbt_greenhouse_source/pull/29) includes the following updates:
+
+## Feature Updates
+
+## Bug Fixes
+- Updated the logic for `stg_greenhouse__tag` and `stg_greenhouse__user` to account for the presence of the singularly or plurally-named titular source tables, tag(s) and user(s).
+
+## Under the Hood
+- Added the `does_table_exist` macro to check for differently named versions of the same source table.
+
 # dbt_greenhouse_source v0.6.0
 ## 🎉 Feature Update 🎉
 - Databricks and PostgreSQL compatibility! ([#25](https://github.com/fivetran/dbt_greenhouse_source/pull/25))
