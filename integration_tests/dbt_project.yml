@@ -3,7 +3,7 @@ version: 0.6.0
 config-version: 2
 profile: 'integration_tests'
 vars:
-  greenhouse_schema: greenhouse_source_integration_tests
+  greenhouse_schema: greenhouse_source_integration_tests_1
   greenhouse_source:
     greenhouse_activity_identifier: "activity"
     greenhouse_pplication_identifier: "application"
@@ -230,7 +230,15 @@ seeds:
     tag:
       +column_types:
         id: "{{ 'int64' if target.type == 'bigquery' else 'bigint' }}"
+    tags:
+      +column_types:
+        id: "{{ 'int64' if target.type == 'bigquery' else 'bigint' }}"
     user:
+      +column_types:
+        id: "{{ 'int64' if target.type == 'bigquery' else 'bigint' }}"
+        created_at: timestamp
+        updated_at: timestamp
+    users:
       +column_types:
         id: "{{ 'int64' if target.type == 'bigquery' else 'bigint' }}"
         created_at: timestamp
