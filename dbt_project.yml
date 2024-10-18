@@ -33,7 +33,9 @@ vars:
     social_media_address: "{{ source('greenhouse', 'social_media_address') }}"
     source: "{{ source('greenhouse', 'source') }}"
     tag: "{{ source('greenhouse', 'tag') }}"
+    tags: "{{ source('greenhouse', 'tags') }}"
     user: "{{ source('greenhouse', 'user') }}"
+    users: "{{ source('greenhouse', 'users') }}"
     user_email: "{{ source('greenhouse', 'user_email') }}"
   greenhouse_using_eeoc: true
   greenhouse_using_app_history: true
