@@ -69,13 +69,13 @@ sources:
             description: Foreign key referencing the ID of the SOURCE of the application.
           - name: status
             description: One of - active, rejected, hired.
-   
+
 
       - name: application_history
         identifier: "{{ var('greenhouse_application_history_identifier', 'application_history')}}"
         description: Table capturing the history of applications as they advance through job stages.
-        meta:
-          is_enabled: "{{ var('greenhouse_using_app_history', true) }}"
+        config:
+          enabled: "{{ var('greenhouse_using_app_history', true) }}"
         columns: 
           - name: application_id
             description: Foreign key referencing the APPLICATION that was updated.
@@ -148,8 +148,8 @@ sources:
       - name: department
         identifier: "{{ var('greenhouse_department_identifier', 'department')}}"
         description: Table storing an organization's job departments.
-        meta:
-          is_enabled: "{{ var('greenhouse_using_job_department', true) }}"
+        config:
+          enabled: "{{ var('greenhouse_using_job_department', true) }}"
         columns:
           - name: external_id
             description: An arbitrary ID provided by an external source; does not map to another entity in Greenhouse.
@@ -163,8 +163,8 @@ sources:
       - name: eeoc
         identifier: "{{ var('greenhouse_eeoc_identifier', 'eeoc')}}"
         description: Table capturing EEOC data provided by candidates. 
-        meta:
-          is_enabled: "{{ var('greenhouse_using_eeoc', true) }}"
+        config:
+          enabled: "{{ var('greenhouse_using_eeoc', true) }}"
         columns:
           - name: application_id
             description: Foreign key referencing the ID of the application with this EEOC data. 
@@ -261,19 +261,19 @@ sources:
       - name: job_department 
         identifier: "{{ var('greenhouse_job_department_identifier', 'job_department')}}"
         description: Table relating jobs to the departments they exist in.
-        meta:
-          is_enabled: "{{ var('greenhouse_using_job_department', true) }}"
+        config:
+          enabled: "{{ var('greenhouse_using_job_department', true) }}"
         columns:
           - name: department_id
             description: Foreign key referencing the DEPARTMENT associated with this job.
           - name: job_id
             description: Foreign key referencing the JOB.
-          
+
       - name: job_office
         identifier: "{{ var('greenhouse_job_office_identifier', 'job_office')}}"
         description: Table relating jobs to the offices they exist in. 
-        meta:
-          is_enabled: "{{ var('greenhouse_using_job_office', true) }}"
+        config:
+          enabled: "{{ var('greenhouse_using_job_office', true) }}"
         columns:
           - name: office_id
             description: Foreign key referencing the OFFICE associated with this job.
@@ -350,8 +350,8 @@ sources:
       - name: office
         identifier: "{{ var('greenhouse_office_identifier', 'office')}}"
         description: Table capturing an organization's offices. 
-        meta:
-          is_enabled: "{{ var('greenhouse_using_job_office', true) }}"
+        config:
+          enabled: "{{ var('greenhouse_using_job_office', true) }}"
         columns:
           - name: external_id
             description: An arbitrary ID provided by an external source; does not map to another entity in Greenhouse.
@@ -560,8 +560,8 @@ sources:
       - name: prospect_pool
         identifier: "{{ var('greenhouse_prospect_pool_identifier', 'prospect_pool')}}"
         description: Table capturing prospect pool groups. 
-        meta:
-          is_enabled: "{{ var('greenhouse_using_prospects', true) }}"
+        config:
+          enabled: "{{ var('greenhouse_using_prospects', true) }}"
         columns:
           - name: active
             description: Boolean that is false if the pool is hidden from view in Greenhouse.
@@ -573,8 +573,8 @@ sources:
       - name: prospect_stage
         identifier: "{{ var('greenhouse_prospect_stage_identifier', 'prospect_stage')}}"
         description: Table capturing stages prospects in different pools advance through. 
-        meta:
-          is_enabled: "{{ var('greenhouse_using_prospects', true) }}"
+        config:
+          enabled: "{{ var('greenhouse_using_prospects', true) }}"
         columns:
           - name: id
             description: Unique id of the prospect stage. 

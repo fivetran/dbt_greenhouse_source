@@ -8,6 +8,8 @@
 
 ## Under the Hood
 - Added the `does_table_exist` macro to check for differently named versions of the same source table.
+- Removed custom fields from seed data and docs.
+- Update the enable config in the src.yml so that freshness tests are not run for non-existent source tables.
 
 # dbt_greenhouse_source v0.6.0
 ## 🎉 Feature Update 🎉
