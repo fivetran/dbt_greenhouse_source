@@ -3,6 +3,7 @@
 
 ## Bug Fixes
 - Updated the logic for `stg_greenhouse__tag` and `stg_greenhouse__user` to account for the presence of the singularly or plurally-named titular source tables, tag(s) and user(s).
+- This is a breaking change for customers with the plurally-named tables, as they have not been able to run the models previously.
 
 ## Under the Hood
 - Added the `does_table_exist` macro to check for differently named versions of the same source table.
