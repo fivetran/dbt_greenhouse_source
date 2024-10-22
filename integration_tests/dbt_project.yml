@@ -3,7 +3,7 @@ version: 0.7.0
 config-version: 2
 profile: 'integration_tests'
 vars:
-  greenhouse_schema: greenhouse_source_integration_tests_2
+  greenhouse_schema: greenhouse_source_integration_tests_3
   greenhouse_source:
     greenhouse_activity_identifier: "activity"
     greenhouse_pplication_identifier: "application"
