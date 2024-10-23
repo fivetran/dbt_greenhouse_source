@@ -487,7 +487,7 @@ sources:
 
       - name: tag
         identifier: "{{ var('greenhouse_tag_identifier', 'tag')}}"
-        description: Table storing candidate tags. 
+        description: Table storing candidate tags.
         freshness: null
         columns:
           - name: id
@@ -530,6 +530,7 @@ sources:
       - name: users
         identifier: "{{ var('greenhouse_users_identifier', 'users')}}"
         description: Table of an organization's Greenhouse users. 
+        freshness: null
         columns:
           - name: created_at
             description: Timestamp of when the user was created.
