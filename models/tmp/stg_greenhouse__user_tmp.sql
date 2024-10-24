@@ -1,1 +1,1 @@
-select * from {{ var('user') if does_table_exist('user') else var('users') }}
+select * from {{ var('users') if does_table_exist('users') else var('user') }}

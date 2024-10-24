@@ -1,1 +1,1 @@
-select * from {{ var('tag') if does_table_exist('tag') else var('tags') }}
+select * from {{ var('tags') if does_table_exist('tags') else var('tag') }}
