@@ -20,7 +20,9 @@ models:
       - name: subject
         description: Subject of the activity.
       - name: user_id
-        description: Foreign key referencing the USER who performed the activity. 
+        description: Foreign key referencing the USER who performed the activity.
+      - name: _fivetran_synced
+        description: "{{ doc('_fivetran_synced') }}"
 
   - name: stg_greenhouse__application
     description: Table capturing all applications (candidates + prospects).
@@ -60,6 +62,8 @@ models:
         description: Foreign key referencing the ID of the SOURCE of the application.
       - name: status
         description: One of - active, rejected, hired.
+      - name: _fivetran_synced
+        description: "{{ doc('_fivetran_synced') }}"
 
   - name: stg_greenhouse__application_history
     description: Table capturing the history of applications as they advance through job stages.
@@ -77,6 +81,8 @@ models:
         description: Status of the application as of this updated. 
       - name: updated_at
         description: Timestamp of when the application was advanced.
+      - name: _fivetran_synced
+        description: "{{ doc('_fivetran_synced') }}"
 
   - name: stg_greenhouse__attachment
     description: Table capturing files attached to the candidate profile.
@@ -96,6 +102,8 @@ models:
         description: One of [“resume”, “cover_letter”, “admin_only”]
       - name: url
         description: Url of where the attachment is stored.
+      - name: _fivetran_synced
+        description: "{{ doc('_fivetran_synced') }}"
 
   - name: stg_greenhouse__candidate
     description: Table capturing an organization's candidates.
@@ -127,6 +135,8 @@ models:
         description: The candidate's current title.
       - name: last_updated_at
         description: Timestamp of when the candidate profile was last updated.
+      - name: _fivetran_synced
+        description: "{{ doc('_fivetran_synced') }}"
 
   - name: stg_greenhouse__candidate_tag
     description: Table associating candidate's with their attached tags. 
@@ -140,6 +150,8 @@ models:
         description: Foreign key referencing the CANDIDATE who is tagged. 
       - name: tag_id
         description: Foreign key referencing the TAG attached to this candidate. 
+      - name: _fivetran_synced
+        description: "{{ doc('_fivetran_synced') }}"
 
   - name: stg_greenhouse__department
     description: Table storing an organization's job departments.
@@ -155,6 +167,8 @@ models:
         description: The department’s name.
       - name: parent_department_id
         description: Self-referencing parent department ID.
+      - name: _fivetran_synced
+        description: "{{ doc('_fivetran_synced') }}"
 
   - name: stg_greenhouse__eeoc
     description: Table capturing EEOC data provided by candidates. 
@@ -182,6 +196,8 @@ models:
         description: Description of the applicant's veteran status.
       - name: veteran_status_id
         description: Foreign key referencing the veteran status' DEMOGRAPHIC_ANSWER_OPTION ID.
+      - name: _fivetran_synced
+        description: "{{ doc('_fivetran_synced') }}"
 
   - name: stg_greenhouse__email_address
     description: Table storing email addresses associated with candidates.
@@ -199,6 +215,8 @@ models:
         description: Type of email address - work, other, personal.
       - name: email
         description: The candidate's email address.
+      - name: _fivetran_synced
+        description: "{{ doc('_fivetran_synced') }}"
 
   - name: stg_greenhouse__hiring_team
     description: Table capturing users and their roles on job hiring teams.
@@ -215,6 +233,8 @@ models:
         description: One of - hiring managers, recruiters, coordinators, sourcers
       - name: user_id
         description: Foreign key referencing the USER who has this role.
+      - name: _fivetran_synced
+        description: "{{ doc('_fivetran_synced') }}"
 
   - name: stg_greenhouse__interview
     description: >
@@ -232,6 +252,8 @@ models:
         description: Foreign key referencing the JOB_STAGE that this interview is associated with.
       - name: name
         description: Title of this interview step.
+      - name: _fivetran_synced
+        description: "{{ doc('_fivetran_synced') }}"
 
   - name: stg_greenhouse__job
     description: Table capturing all jobs stored in Greenhouse.
@@ -256,7 +278,9 @@ models:
       - name: status
         description: One of open, closed, draft.
       - name: last_updated_at
-        description: Timestamp of when the job was last updated. 
+        description: Timestamp of when the job was last updated.
+      - name: _fivetran_synced
+        description: "{{ doc('_fivetran_synced') }}"
 
   - name: stg_greenhouse__job_application
     description: Table relating applications to the jobs they applied to.
@@ -269,7 +293,9 @@ models:
       - name: application_id
         description: Foreign key referencing the APPLICATION that was submitted.
       - name: job_id
-        description: Foreign key referencing the JOB that was applied to. 
+        description: Foreign key referencing the JOB that was applied to.
+      - name: _fivetran_synced
+        description: "{{ doc('_fivetran_synced') }}" 
 
   - name: stg_greenhouse__job_department 
     description: Table relating jobs to the departments they exist in. 
@@ -283,6 +309,8 @@ models:
         description: Foreign key referencing the DEPARTMENT associated with this job.
       - name: job_id
         description: Foreign key referencing the JOB.
+      - name: _fivetran_synced
+        description: "{{ doc('_fivetran_synced') }}"
 
   - name: stg_greenhouse__job_office
     description: Table relating jobs to the offices they exist in. 
@@ -296,6 +324,8 @@ models:
         description: Foreign key referencing the OFFICE associated with this job.
       - name: job_id
         description: Foreign key referencing the JOB.
+      - name: _fivetran_synced
+        description: "{{ doc('_fivetran_synced') }}"
 
   - name: stg_greenhouse__job_opening
     description: Table capturing openings made for jobs.
@@ -325,6 +355,8 @@ models:
         description: Opening ID visible from the UI. 
       - name: current_status
         description: Either “open” or “closed”.
+      - name: _fivetran_synced
+        description: "{{ doc('_fivetran_synced') }}"
 
   - name: stg_greenhouse__job_post 
     description: Table capturing the online job posts for an organization’s jobs (as seen on the Job Board).
@@ -353,7 +385,9 @@ models:
       - name: title
         description: Title of the job post. 
       - name: last_updated_at
-        description: Timestamp of when the job post was last updated. 
+        description: Timestamp of when the job post was last updated.
+      - name: _fivetran_synced
+        description: "{{ doc('_fivetran_synced') }}" 
 
   - name: stg_greenhouse__job_stage
     description: Table capturing each stage of a job's hiring pipeline. 
@@ -363,14 +397,16 @@ models:
       - name: job_stage_id
         description: Unique ID of the job stage.
         tests:
-           - unique
-           - not_null
+          - unique
+          - not_null
       - name: job_id
         description: Foreign key referencing the JOB for which the stage exists. 
       - name: stage_name
         description: Name of the job stage.
       - name: last_updated_at
         description: Timestamp of when the job stage was last updated.
+      - name: _fivetran_synced
+        description: "{{ doc('_fivetran_synced') }}"
         
   - name: stg_greenhouse__office
     description: Table capturing an organization's offices. 
@@ -392,6 +428,8 @@ models:
         description: >
           Foreign key referencing the id of the USER who will be the primary in-house contact for 
           this office. This user must be a site-admin.
+      - name: _fivetran_synced
+        description: "{{ doc('_fivetran_synced') }}"
 
   - name: stg_greenhouse__phone_number
     description: Table capturing phone numbers associated with candidates. 
@@ -436,6 +474,8 @@ models:
         description: One of - scheduled, awaiting_feedback, complete.
       - name: last_updated_at
         description: Timestamp of when the interview was last updated.
+      - name: _fivetran_synced
+        description: "{{ doc('_fivetran_synced') }}"
 
   - name: stg_greenhouse__scheduled_interviewer
     description: Table storing relating users to interviews they partook in.
@@ -450,7 +490,9 @@ models:
       - name: scheduled_interview_id
         description: Foreign key referencing the specific candidate's SCHEDULED_INTERVIEW id.
       - name: scorecard_id
-        description: Foreign key referencing the SCORECARD associated with this interviewer's feedback. 
+        description: Foreign key referencing the SCORECARD associated with this interviewer's feedback.
+      - name: _fivetran_synced
+        description: "{{ doc('_fivetran_synced') }}" 
 
   - name: stg_greenhouse__scorecard
     description: All submitted scorecards for candidate interviews.
@@ -478,6 +520,8 @@ models:
         description: Foreign key referencing the USER who submitted the scorecard.
       - name: last_updated_at 
         description: Timestamp of when the scorecard was last updated.
+      - name: _fivetran_synced
+        description: "{{ doc('_fivetran_synced') }}"
 
   - name: stg_greenhouse__scorecard_attribute
     description: Table capturing ratings along individual standards within each scorecard. 
@@ -498,7 +542,9 @@ models:
       - name: scorecard_id
         description: Foreign key referencing the SCORECARD this attribute rating belongs to.
       - name: attribute_category
-        description: Category of the attribute. 
+        description: Category of the attribute.
+      - name: _fivetran_synced
+        description: "{{ doc('_fivetran_synced') }}" 
 
   - name: stg_greenhouse__social_media_address
     description: Table capturing social media links (ie linkedin, github) provided by candidates. 
@@ -513,7 +559,9 @@ models:
       - name: index
         description: Index of the social media link amongst the candidate's stored links.
       - name: url
-        description: The candidate's social media link. 
+        description: The candidate's social media link.
+      - name: _fivetran_synced
+        description: "{{ doc('_fivetran_synced') }}" 
 
   - name: stg_greenhouse__source
     description: Table capturing an organization's applicant sources.
@@ -531,6 +579,8 @@ models:
         description: >
           Name of the source category. One of - attend_events, referrals, third_party_boards, 
           candidate_search, other, social_media, company_marketing, agencies, prospecting.
+      - name: _fivetran_synced
+        description: "{{ doc('_fivetran_synced') }}"
 
   - name: stg_greenhouse__tag
     description: Table storing candidate tags. 
@@ -542,6 +592,8 @@ models:
           - not_null
       - name: tag_name 
         description: Title of the tag as it appears in the UI.
+      - name: _fivetran_synced
+        description: "{{ doc('_fivetran_synced') }}"
 
   - name: stg_greenhouse__user
     description: Table of an organization's Greenhouse users. 
@@ -562,10 +614,12 @@ models:
       - name: is_site_admin
         description: If true, this user is a site admin, which means the user has full permissions on all non-private jobs.
       - name: last_updated_at
-        description: Timestamp of when the user was updated. 
+        description: Timestamp of when the user was updated.
+      - name: _fivetran_synced
+        description: "{{ doc('_fivetran_synced') }}" 
 
   - name: stg_greenhouse__user_email
-    description: Table associating Greenhouse users with their emails. \
+    description: Table associating Greenhouse users with their emails.
     tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns: 
@@ -576,6 +630,8 @@ models:
         description: User's email.
       - name: user_id
         description: Foreign key referencing the USER who has this email.
+      - name: _fivetran_synced
+        description: "{{ doc('_fivetran_synced') }}"
 
   - name: stg_greenhouse__prospect_pool
     description: Table capturing prospect pool groups. 
@@ -588,7 +644,9 @@ models:
           - unique
           - not_null
       - name: prospect_pool_name
-        description: Name given to the prospect pool. 
+        description: Name given to the prospect pool.
+      - name: _fivetran_synced
+        description: "{{ doc('_fivetran_synced') }}" 
 
   - name: stg_greenhouse__prospect_stage
     tests:
@@ -604,4 +662,6 @@ models:
         description: Name of the prospect stage. 
       - name: prospect_pool_id
         description: Foreign key referencing the PROSPECT_POOL the stage belongs to.
+      - name: _fivetran_synced
+        description: "{{ doc('_fivetran_synced') }}"
       

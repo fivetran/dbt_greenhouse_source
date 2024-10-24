@@ -1,3 +1,16 @@
+# dbt_greenhouse_source v0.7.0
+[PR #29](https://github.com/fivetran/dbt_greenhouse_source/pull/29) includes the following updates:
+
+## Bug Fixes
+- Updated the logic for `stg_greenhouse__tag` and `stg_greenhouse__user` to account for the presence of the singularly or plurally-named titular source tables, tag(s) and user(s). In the case where there exists both versions of the table name, the package will use the plurally-named table.
+  - The source table `tag` was renamed to `tags` for [connectors created on or after July 18, 2024](https://fivetran.com/docs/connectors/applications/greenhouse/changelog#july2024) and the table `user` was renamed to `users` in [October 2024](https://fivetran.com/docs/connectors/applications/greenhouse/changelog#october2024).
+- This is a breaking change for customers with the plurally-named tables, as they have not been able to run the models previously.
+
+## Under the Hood
+- Added the `does_table_exist` macro to check for differently named versions of the same source table.
+- Removed custom fields from seed data and docs.
+- Update the enable config in the src.yml so that freshness tests are not run for non-existent source tables.
+
 # dbt_greenhouse_source v0.6.0
 ## 🎉 Feature Update 🎉
 - Databricks and PostgreSQL compatibility! ([#25](https://github.com/fivetran/dbt_greenhouse_source/pull/25))

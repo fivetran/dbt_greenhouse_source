@@ -1,5 +1,5 @@
 name: 'greenhouse_source'
-version: 0.6.0
+version: 0.7.0
 config-version: 2
 require-dbt-version: [">=1.3.0", "<2.0.0"]
 vars:
@@ -33,7 +33,9 @@ vars:
     social_media_address: "{{ source('greenhouse', 'social_media_address') }}"
     source: "{{ source('greenhouse', 'source') }}"
     tag: "{{ source('greenhouse', 'tag') }}"
+    tags: "{{ source('greenhouse', 'tags') }}"
     user: "{{ source('greenhouse', 'user') }}"
+    users: "{{ source('greenhouse', 'users') }}"
     user_email: "{{ source('greenhouse', 'user_email') }}"
   greenhouse_using_eeoc: true
   greenhouse_using_app_history: true

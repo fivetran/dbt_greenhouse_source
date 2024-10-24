@@ -1,9 +1,9 @@
 name: 'greenhouse_source_integration_tests'
-version: 0.6.0
+version: 0.7.0
 config-version: 2
 profile: 'integration_tests'
 vars:
-  greenhouse_schema: greenhouse_source_integration_tests
+  greenhouse_schema: greenhouse_source_integration_tests_3
   greenhouse_source:
     greenhouse_activity_identifier: "activity"
     greenhouse_pplication_identifier: "application"
@@ -32,12 +32,12 @@ vars:
     greenhouse_scorecard_attribute_identifier: "scorecard_attribute"
     greenhouse_social_media_address_identifier: "social_media_address"
     greenhouse_source_identifier: "source"
-    greenhouse_tag_identifier: "tag"
-    greenhouse_user_identifier: "user"
+    # greenhouse_tag_identifier: "tag"
+    # greenhouse_user_identifier: "user"
+    greenhouse_tags_identifier: "tags"
+    greenhouse_users_identifier: "users"
     greenhouse_user_email_identifier: "user_email"
     scheduled_interview: "{{ fivetran_utils.seed_data_helper('scheduled_interview', ('snowflake', 'postgres')) }}"
-  greenhouse_application_custom_columns: ['custom_what_is_your_preferred_pronoun_', 'custom_how_did_you_hear_about_fivetran_']
-  greenhouse_job_custom_columns: ['custom_employment_type', 'custom_stock_options']
   greenhouse_using_eeoc: true
   greenhouse_using_app_history: true
   greenhouse_using_prospects: true
@@ -228,7 +228,15 @@ seeds:
     tag:
       +column_types:
         id: "{{ 'int64' if target.type == 'bigquery' else 'bigint' }}"
+    tags:
+      +column_types:
+        id: "{{ 'int64' if target.type == 'bigquery' else 'bigint' }}"
     user:
+      +column_types:
+        id: "{{ 'int64' if target.type == 'bigquery' else 'bigint' }}"
+        created_at: timestamp
+        updated_at: timestamp
+    users:
       +column_types:
         id: "{{ 'int64' if target.type == 'bigquery' else 'bigint' }}"
         created_at: timestamp
