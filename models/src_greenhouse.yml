@@ -69,13 +69,13 @@ sources:
             description: Foreign key referencing the ID of the SOURCE of the application.
           - name: status
             description: One of - active, rejected, hired.
-   
+
 
       - name: application_history
         identifier: "{{ var('greenhouse_application_history_identifier', 'application_history')}}"
         description: Table capturing the history of applications as they advance through job stages.
-        meta:
-          is_enabled: "{{ var('greenhouse_using_app_history', true) }}"
+        config:
+          enabled: "{{ var('greenhouse_using_app_history', true) }}"
         columns: 
           - name: application_id
             description: Foreign key referencing the APPLICATION that was updated.
@@ -148,8 +148,8 @@ sources:
       - name: department
         identifier: "{{ var('greenhouse_department_identifier', 'department')}}"
         description: Table storing an organization's job departments.
-        meta:
-          is_enabled: "{{ var('greenhouse_using_job_department', true) }}"
+        config:
+          enabled: "{{ var('greenhouse_using_job_department', true) }}"
         columns:
           - name: external_id
             description: An arbitrary ID provided by an external source; does not map to another entity in Greenhouse.
@@ -163,8 +163,8 @@ sources:
       - name: eeoc
         identifier: "{{ var('greenhouse_eeoc_identifier', 'eeoc')}}"
         description: Table capturing EEOC data provided by candidates. 
-        meta:
-          is_enabled: "{{ var('greenhouse_using_eeoc', true) }}"
+        config:
+          enabled: "{{ var('greenhouse_using_eeoc', true) }}"
         columns:
           - name: application_id
             description: Foreign key referencing the ID of the application with this EEOC data. 
@@ -261,19 +261,19 @@ sources:
       - name: job_department 
         identifier: "{{ var('greenhouse_job_department_identifier', 'job_department')}}"
         description: Table relating jobs to the departments they exist in.
-        meta:
-          is_enabled: "{{ var('greenhouse_using_job_department', true) }}"
+        config:
+          enabled: "{{ var('greenhouse_using_job_department', true) }}"
         columns:
           - name: department_id
             description: Foreign key referencing the DEPARTMENT associated with this job.
           - name: job_id
             description: Foreign key referencing the JOB.
-          
+
       - name: job_office
         identifier: "{{ var('greenhouse_job_office_identifier', 'job_office')}}"
         description: Table relating jobs to the offices they exist in. 
-        meta:
-          is_enabled: "{{ var('greenhouse_using_job_office', true) }}"
+        config:
+          enabled: "{{ var('greenhouse_using_job_office', true) }}"
         columns:
           - name: office_id
             description: Foreign key referencing the OFFICE associated with this job.
@@ -350,8 +350,8 @@ sources:
       - name: office
         identifier: "{{ var('greenhouse_office_identifier', 'office')}}"
         description: Table capturing an organization's offices. 
-        meta:
-          is_enabled: "{{ var('greenhouse_using_job_office', true) }}"
+        config:
+          enabled: "{{ var('greenhouse_using_job_office', true) }}"
         columns:
           - name: external_id
             description: An arbitrary ID provided by an external source; does not map to another entity in Greenhouse.
@@ -472,6 +472,7 @@ sources:
       - name: source
         identifier: "{{ var('greenhouse_source_identifier', 'source')}}"
         description: Table capturing an organization's applicant sources.
+        freshness: null
         columns:
           - name: id
             description: Unique ID of the source. 
@@ -486,7 +487,18 @@ sources:
 
       - name: tag
         identifier: "{{ var('greenhouse_tag_identifier', 'tag')}}"
-        description: Table storing candidate tags. 
+        description: Table storing candidate tags.
+        freshness: null
+        columns:
+          - name: id
+            description: Unique ID of the tag. 
+          - name: name 
+            description: Title of the tag as it appears in the UI.
+
+      - name: tags
+        identifier: "{{ var('greenhouse_tags_identifier', 'tags')}}"
+        description: Table storing candidate tags.
+        freshness: null
         columns:
           - name: id
             description: Unique ID of the tag. 
@@ -495,7 +507,30 @@ sources:
 
       - name: user
         identifier: "{{ var('greenhouse_user_identifier', 'user')}}"
+        description: Table of an organization's Greenhouse users.
+        freshness: null
+        columns:
+          - name: created_at
+            description: Timestamp of when the user was created.
+          - name: disabled
+            description: Boolean that is true if the user account has been disabled.
+          - name: employee_id 
+            description: The user’s external employee id.
+          - name: first_name
+            description: User's first name. 
+          - name: last_name
+            description: User's last name. 
+          - name: id
+            description: Unique ID of the user. 
+          - name: site_admin
+            description: If true, this user is a site admin, which means the user has full permissions on all non-private jobs.
+          - name: updated_at
+            description: Timestamp of when the user was updated. 
+
+      - name: users
+        identifier: "{{ var('greenhouse_users_identifier', 'users')}}"
         description: Table of an organization's Greenhouse users. 
+        freshness: null
         columns:
           - name: created_at
             description: Timestamp of when the user was created.
@@ -526,8 +561,8 @@ sources:
       - name: prospect_pool
         identifier: "{{ var('greenhouse_prospect_pool_identifier', 'prospect_pool')}}"
         description: Table capturing prospect pool groups. 
-        meta:
-          is_enabled: "{{ var('greenhouse_using_prospects', true) }}"
+        config:
+          enabled: "{{ var('greenhouse_using_prospects', true) }}"
         columns:
           - name: active
             description: Boolean that is false if the pool is hidden from view in Greenhouse.
@@ -539,8 +574,8 @@ sources:
       - name: prospect_stage
         identifier: "{{ var('greenhouse_prospect_stage_identifier', 'prospect_stage')}}"
         description: Table capturing stages prospects in different pools advance through. 
-        meta:
-          is_enabled: "{{ var('greenhouse_using_prospects', true) }}"
+        config:
+          enabled: "{{ var('greenhouse_using_prospects', true) }}"
         columns:
           - name: id
             description: Unique id of the prospect stage. 
