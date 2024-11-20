@@ -8,7 +8,7 @@
 - Update README formatting.
 
 ## Under the Hood
-- Add additional integration test for disabling `*_using` variables.
+- Added an additional integration test to verify functionality when `greenhouse_using_*` variables are disabled.
 
 # dbt_greenhouse_source v0.7.0
 [PR #29](https://github.com/fivetran/dbt_greenhouse_source/pull/29) includes the following updates:
