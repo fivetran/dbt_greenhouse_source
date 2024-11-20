@@ -36,7 +36,7 @@ final as (
         cast(last_activity_at as {{ dbt.type_timestamp() }}) as last_activity_at,
         location_address,
         prospect as is_prospect,
-        prospect_owner_id as prospect_owner_user_id,
+        cast(prospect_owner_id as {{ dbt.type_string() }}) as prospect_owner_user_id,
         cast(prospect_pool_id as {{ dbt.type_string() }}) as prospect_pool_id,
         cast(prospect_stage_id as {{ dbt.type_string() }}) as prospect_stage_id,
         cast(rejected_at as {{ dbt.type_timestamp() }}) as rejected_at,
