@@ -24,10 +24,10 @@ final as (
     
     select 
         _fivetran_synced,
-        external_id as external_department_id,
-        id as department_id,
+        cast(external_id as {{ dbt.type_string() }}) as external_department_id,
+        cast(id as {{ dbt.type_string() }}) as department_id,
         name,
-        parent_id as parent_department_id
+        cast(parent_id as {{ dbt.type_string() }}) as parent_department_id
 
     from fields
 

@@ -25,9 +25,9 @@ final as (
         _fivetran_synced,
         cast(created_at as {{ dbt.type_timestamp() }}) as created_at,
         disabled as is_disabled,
-        employee_id, -- external
+        cast(employee_id as {{ dbt.type_string() }}) as employee_id, -- external
         first_name || ' ' || last_name as full_name,
-        id as user_id,
+        cast(id as {{ dbt.type_string() }}) as user_id,
         site_admin as is_site_admin,
         cast(updated_at as {{ dbt.type_timestamp() }}) as last_updated_at
 

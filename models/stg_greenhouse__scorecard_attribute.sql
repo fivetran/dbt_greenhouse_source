@@ -27,7 +27,7 @@ final as (
         name as attribute_name,
         note,
         rating,
-        scorecard_id,
+        cast(scorecard_id as {{ dbt.type_string() }}) as scorecard_id,
         type as attribute_category
 
     from fields

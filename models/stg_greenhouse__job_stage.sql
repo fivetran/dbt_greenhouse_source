@@ -24,8 +24,8 @@ final as (
     select 
         _fivetran_synced,
         cast(created_at as {{ dbt.type_timestamp() }}) as created_at,
-        id as job_stage_id,
-        job_id,
+        cast(id as {{ dbt.type_string() }}) as job_stage_id,
+        cast(job_id as {{ dbt.type_string() }}) as job_id,
         name as stage_name,
         cast(updated_at as {{ dbt.type_timestamp() }}) as last_updated_at
 

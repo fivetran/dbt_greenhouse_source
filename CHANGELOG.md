@@ -1,3 +1,9 @@
+# dbt_greenhouse_source v0.8.0
+[PR #31](https://github.com/fivetran/dbt_greenhouse_source/pull/31) includes the following updates:
+
+## Bug Fixes
+- Casted `*_id` fields as strings to ensure compatibility in joins downstream.
+
 # dbt_greenhouse_source v0.7.0
 [PR #29](https://github.com/fivetran/dbt_greenhouse_source/pull/29) includes the following updates:
 

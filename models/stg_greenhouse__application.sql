@@ -29,20 +29,19 @@ final as (
     select 
         _fivetran_synced,
         cast(applied_at as {{ dbt.type_timestamp() }}) as applied_at,
-        candidate_id,
-        credited_to_user_id,
-        current_stage_id,
-        id as application_id,
-
+        cast(candidate_id as {{ dbt.type_string() }}) as candidate_id,
+        cast(credited_to_user_id as {{ dbt.type_string() }}) as credited_to_user_id,
+        cast(current_stage_id as {{ dbt.type_string() }}) as current_stage_id,
+        cast(id as {{ dbt.type_string() }}) as application_id,
         cast(last_activity_at as {{ dbt.type_timestamp() }}) as last_activity_at,
         location_address,
         prospect as is_prospect,
         prospect_owner_id as prospect_owner_user_id,
-        prospect_pool_id,
-        prospect_stage_id,
+        cast(prospect_pool_id as {{ dbt.type_string() }}) as prospect_pool_id,
+        cast(prospect_stage_id as {{ dbt.type_string() }}) as prospect_stage_id,
         cast(rejected_at as {{ dbt.type_timestamp() }}) as rejected_at,
-        rejected_reason_id,
-        source_id,
+        cast(rejected_reason_id as {{ dbt.type_string() }}) as rejected_reason_id,
+        cast(source_id as {{ dbt.type_string() }}) as source_id,
         status
 
         {% if var('greenhouse_application_custom_columns', []) != [] %}

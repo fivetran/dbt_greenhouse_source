@@ -24,13 +24,13 @@ final as (
     
     select 
         _fivetran_synced,
-        application_id,
+        cast(application_id as {{ dbt.type_string() }}) as application_id,
         disability_status_description,
-        disability_status_id,
+        cast(disability_status_id as {{ dbt.type_string() }}) as disability_status_id,
         gender_description,
-        gender_id,
+        cast(gender_id as {{ dbt.type_string() }}) as gender_id,
         race_description,
-        race_id,
+        cast(race_id as {{ dbt.type_string() }}) as race_id,
         cast(submitted_at as {{ dbt.type_timestamp() }}) as submitted_at,
         veteran_status_description,
         veteran_status_id

@@ -23,7 +23,7 @@ final as (
     
     select 
         _fivetran_synced,
-        application_id,
+        cast(application_id as {{ dbt.type_string() }}) as application_id,
         cast(created_at as {{ dbt.type_timestamp() }}) as created_at,
         cast(
         {%- if target.type == 'bigquery' %}
@@ -34,10 +34,10 @@ final as (
         end 
         {% endif %}
         as {{ dbt.type_timestamp() }}) as end_at,
-        id as scheduled_interview_id,
-        interview_id,
+        cast(id  as {{ dbt.type_string() }}) as scheduled_interview_id,
+        cast(interview_id as {{ dbt.type_string() }}) as interview_id,
         location,
-        organizer_id as organizer_user_id,
+        cast(organizer_id as {{ dbt.type_string() }}) as organizer_user_id,
 
         cast(
         {%- if target.type == 'snowflake' %}

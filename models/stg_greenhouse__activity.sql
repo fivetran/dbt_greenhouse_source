@@ -24,11 +24,11 @@ final as (
     select 
         _fivetran_synced,
         body,
-        candidate_id,
+        cast(candidate_id as {{ dbt.type_string() }}) as candidate_id,
         cast(created_at as {{ dbt.type_timestamp() }}) as occurred_at,
-        id as activity_id,
+        cast(id as activity_id as {{ dbt.type_string() }}) as activity_id,
         subject,
-        user_id
+        cast(user_id as {{ dbt.type_string() }}) as user_id
 
     from fields
 )

@@ -1,12 +1,12 @@
 name: 'greenhouse_source_integration_tests'
-version: 0.7.0
+version: 0.8.0
 config-version: 2
 profile: 'integration_tests'
 vars:
   greenhouse_schema: greenhouse_source_integration_tests_3
   greenhouse_source:
     greenhouse_activity_identifier: "activity"
-    greenhouse_pplication_identifier: "application"
+    greenhouse_application_identifier: "application"
     greenhouse_application_history_identifier: "application_history"
     greenhouse_attachment_identifier: "attachment"
     greenhouse_candidate_identifier: "candidate"

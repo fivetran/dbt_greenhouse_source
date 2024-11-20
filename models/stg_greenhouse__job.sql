@@ -31,10 +31,10 @@ final as (
         cast(closed_at as {{ dbt.type_timestamp() }}) as last_opening_closed_at,
         confidential as is_confidential,
         cast(created_at as {{ dbt.type_timestamp() }}) as created_at,
-        id as job_id,
+        cast(id as {{ dbt.type_string() }}) as job_id,
         name as job_title,
         notes,
-        requisition_id,
+        cast(requisition_id as {{ dbt.type_string() }}) as requisition_id,
         status,
         cast(updated_at as {{ dbt.type_timestamp() }}) as last_updated_at
         

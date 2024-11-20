@@ -23,13 +23,13 @@ final as (
     
     select 
         _fivetran_synced,
-        application_id,
-        close_reason_id,
+        cast(application_id as {{ dbt.type_string() }}) as application_id,
+        cast(close_reason_id as {{ dbt.type_string() }}) as close_reason_id,
         cast(closed_at as {{ dbt.type_timestamp() }}) as closed_at,
-        id as job_openining_id,
-        job_id,
+        cast(id as {{ dbt.type_string() }})as job_openining_id,
+        cast(job_id as {{ dbt.type_string() }}) as job_id,
         cast(opened_at as {{ dbt.type_timestamp() }}) as opened_at,
-        opening_id as opening_text_id,
+        cast(opening_id as {{ dbt.type_string() }})as opening_text_id,
         status as current_status
 
     from fields

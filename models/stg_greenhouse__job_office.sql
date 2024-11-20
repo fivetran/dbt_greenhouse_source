@@ -24,8 +24,8 @@ final as (
     
     select 
         _fivetran_synced,
-        office_id,
-        job_id
+        cast(office_id as {{ dbt.type_string() }}) as office_id,
+        cast(job_id as {{ dbt.type_string() }}) as job_id
 
     from fields
 )

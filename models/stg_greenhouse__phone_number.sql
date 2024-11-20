@@ -22,7 +22,7 @@ fields as (
 final as (
     
     select 
-        candidate_id,
+        cast(candidate_id as {{ dbt.type_string() }}) as candidate_id,
         index,
         type as phone_type,
         value as phone_number
