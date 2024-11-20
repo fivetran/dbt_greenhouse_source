@@ -26,7 +26,7 @@ final as (
         body,
         cast(candidate_id as {{ dbt.type_string() }}) as candidate_id,
         cast(created_at as {{ dbt.type_timestamp() }}) as occurred_at,
-        cast(id as activity_id as {{ dbt.type_string() }}) as activity_id,
+        cast(id as {{ dbt.type_string() }}) as activity_id,
         subject,
         cast(user_id as {{ dbt.type_string() }}) as user_id
 
