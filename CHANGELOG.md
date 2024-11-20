@@ -4,6 +4,9 @@
 ## Breaking Changes
 - Casted `*_id` fields as strings to ensure compatibility in joins downstream.
 
+## Documentation
+- Update README formatting.
+
 # dbt_greenhouse_source v0.7.0
 [PR #29](https://github.com/fivetran/dbt_greenhouse_source/pull/29) includes the following updates:
 
