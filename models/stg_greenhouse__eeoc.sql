@@ -33,7 +33,7 @@ final as (
         cast(race_id as {{ dbt.type_string() }}) as race_id,
         cast(submitted_at as {{ dbt.type_timestamp() }}) as submitted_at,
         veteran_status_description,
-        veteran_status_id
+        cast(veteran_status_id as {{ dbt.type_string() }}) as veteran_status_id
         
     from fields
 )

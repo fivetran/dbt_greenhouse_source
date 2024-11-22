@@ -2,7 +2,8 @@
 [PR #31](https://github.com/fivetran/dbt_greenhouse_source/pull/31) includes the following updates:
 
 ## Breaking Changes
-- Casted `*_id` fields as strings to ensure compatibility in joins downstream.
+- Updated `*_id` fields to be cast as strings to ensure compatibility in downstream joins by avoiding potential type mismatches.
+  - Note: most IDs were previously stored as integers.
 
 ## Documentation
 - Update README formatting.
