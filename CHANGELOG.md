@@ -2,7 +2,7 @@
 [PR #31](https://github.com/fivetran/dbt_greenhouse_source/pull/31) includes the following updates:
 
 ## Breaking Changes
-- Updated `*_id` fields to be cast as strings to ensure compatibility in downstream joins by avoiding potential type mismatches.
+- Updated `*_id` fields in all staging models to be cast as strings to ensure compatibility in downstream joins by avoiding potential type mismatches.
   - Note: most IDs were previously stored as integers.
 
 ## Documentation
