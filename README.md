@@ -1,4 +1,6 @@
-<p align="center">
+# Greenhouse Source dbt Package ([Docs](https://fivetran.github.io/dbt_greenhouse_source/))
+
+<p align="left">
     <a alt="License"
         href="https://github.com/fivetran/dbt_greenhouse_source/blob/main/LICENSE">
         <img src="https://img.shields.io/badge/License-Apache%202.0-blue.svg" /></a>
@@ -9,8 +11,6 @@
     <a alt="PRs">
         <img src="https://img.shields.io/badge/Contributions-welcome-blueviolet" /></a>
 </p>
-
-# Greenhouse Source dbt Package ([Docs](https://fivetran.github.io/dbt_greenhouse_source/))
 
 ## What does this dbt package do?
 - Materializes [Greenhouse staging tables](https://fivetran.github.io/dbt_greenhouse_source/#!/overview/greenhouse_source/models/?g_v=1) which leverage data in the format described by [this ERD](https://fivetran.com/docs/applications/greenhouse/#schemainformation). These staging tables clean, test, and prepare your Greenhouse data from [Fivetran's connector](https://fivetran.com/docs/applications/greenhouse) for analysis by doing the following:
@@ -33,7 +33,7 @@ Include the following greenhouse_source package version in your `packages.yml` f
 ```yaml
 packages:
   - package: fivetran/greenhouse_source
-    version: [">=0.7.0", "<0.8.0"] # we recommend using ranges to capture non-breaking changes automatically
+    version: [">=0.8.0", "<0.9.0"] # we recommend using ranges to capture non-breaking changes automatically
 ```
 
 ### Step 3: Define database and schema variables

@@ -23,7 +23,7 @@ final as (
     
     select 
         _fivetran_synced,
-        id as tag_id,
+        cast(id as {{ dbt.type_string() }}) as tag_id,
         name as tag_name
 
     from fields

@@ -1,3 +1,16 @@
+# dbt_greenhouse_source v0.8.0
+[PR #31](https://github.com/fivetran/dbt_greenhouse_source/pull/31) includes the following updates:
+
+## Breaking Changes
+- Updated `*_id` fields in all staging models to be cast as strings to ensure compatibility in downstream joins by avoiding potential type mismatches.
+  - Note: most IDs were previously stored as integers.
+
+## Documentation
+- Updated README formatting.
+
+## Under the Hood
+- Added an additional integration test to verify functionality when `greenhouse_using_*` variables are disabled.
+
 # dbt_greenhouse_source v0.7.0
 [PR #29](https://github.com/fivetran/dbt_greenhouse_source/pull/29) includes the following updates:
 

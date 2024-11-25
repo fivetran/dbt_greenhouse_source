@@ -24,12 +24,12 @@ final as (
     
     select 
         _fivetran_synced,
-        external_id as external_office_id,
-        id as office_id,
+        cast(external_id as {{ dbt.type_string() }}) as external_office_id,
+        cast(id as {{ dbt.type_string() }}) as office_id,
         location_name,
         name as office_name,
-        parent_id as parent_office_id,
-        primary_contact_user_id
+        cast(parent_id as {{ dbt.type_string() }}) as parent_office_id,
+        cast(primary_contact_user_id as {{ dbt.type_string() }}) as primary_contact_user_id
         
     from fields
 

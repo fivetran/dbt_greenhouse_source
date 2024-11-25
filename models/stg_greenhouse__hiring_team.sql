@@ -23,9 +23,9 @@ final as (
     
     select 
         _fivetran_synced,
-        job_id,
+        cast(job_id as {{ dbt.type_string() }}) as job_id,
         role,
-        user_id
+        cast(user_id as {{ dbt.type_string() }}) as user_id
         
     from fields
 )

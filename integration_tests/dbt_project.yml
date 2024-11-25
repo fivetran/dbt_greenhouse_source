@@ -1,12 +1,12 @@
 name: 'greenhouse_source_integration_tests'
-version: 0.7.0
+version: 0.8.0
 config-version: 2
 profile: 'integration_tests'
 vars:
   greenhouse_schema: greenhouse_source_integration_tests_3
   greenhouse_source:
     greenhouse_activity_identifier: "activity"
-    greenhouse_pplication_identifier: "application"
+    greenhouse_application_identifier: "application"
     greenhouse_application_history_identifier: "application_history"
     greenhouse_attachment_identifier: "attachment"
     greenhouse_candidate_identifier: "candidate"
@@ -38,9 +38,7 @@ vars:
     greenhouse_users_identifier: "users"
     greenhouse_user_email_identifier: "user_email"
     scheduled_interview: "{{ fivetran_utils.seed_data_helper('scheduled_interview', ('snowflake', 'postgres')) }}"
-  greenhouse_using_eeoc: true
-  greenhouse_using_app_history: true
-  greenhouse_using_prospects: true
+
 seeds:
   greenhouse_source_integration_tests:
     +column_types:

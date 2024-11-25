@@ -29,14 +29,14 @@ final as (
     select 
         _fivetran_synced,
         company as current_company,
-        coordinator_id as coordinator_user_id,
+        cast(coordinator_id as {{ dbt.type_string() }}) as coordinator_user_id,
         cast(created_at as {{ dbt.type_timestamp() }}) as created_at,
         first_name || ' ' || last_name as full_name,
-        id as candidate_id,
+        cast(id as {{ dbt.type_string() }}) as candidate_id,
         is_private,
         cast(last_activity as {{ dbt.type_timestamp() }}) as last_activity_at,
-        new_candidate_id,
-        recruiter_id as recruiter_user_id,
+        cast(new_candidate_id as {{ dbt.type_string() }}) as new_candidate_id,
+        cast(recruiter_id as {{ dbt.type_string() }}) as recruiter_user_id,
         title as current_title,
         cast(updated_at as {{ dbt.type_timestamp() }}) as last_updated_at
 

@@ -23,9 +23,9 @@ final as (
     
     select 
         _fivetran_synced,
-        id as source_id,
+        cast(id as {{ dbt.type_string() }}) as source_id,
         name as source_name,
-        source_type_id,
+        cast(source_type_id as {{ dbt.type_string() }}) as source_type_id,
         source_type_name
 
     from fields

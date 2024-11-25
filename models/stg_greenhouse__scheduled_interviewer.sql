@@ -23,9 +23,9 @@ final as (
     
     select 
         _fivetran_synced,
-        interviewer_id as interviewer_user_id,
-        scheduled_interview_id,
-        scorecard_id
+        cast(interviewer_id as {{ dbt.type_string() }}) as interviewer_user_id,
+        cast(scheduled_interview_id as {{ dbt.type_string() }}) as scheduled_interview_id,
+        cast(scorecard_id as {{ dbt.type_string() }}) as scorecard_id
 
     from fields
 )

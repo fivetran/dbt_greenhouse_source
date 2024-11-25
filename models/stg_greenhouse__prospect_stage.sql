@@ -24,9 +24,9 @@ final as (
     
     select 
         _fivetran_synced,
-        id as prospect_stage_id,
+        cast(id as {{ dbt.type_string() }}) as prospect_stage_id,
         name as prospect_stage_name,
-        prospect_pool_id
+        cast(prospect_pool_id as {{ dbt.type_string() }}) as prospect_pool_id
         
     from fields
 

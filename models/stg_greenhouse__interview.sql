@@ -23,9 +23,9 @@ final as (
     
     select 
         _fivetran_synced,
-        id as interview_id,
+        cast(id as {{ dbt.type_string() }}) as interview_id,
         interview_kit_content,
-        job_stage_id,
+        cast(job_stage_id as {{ dbt.type_string() }}) as job_stage_id,
         name
         
     from fields
