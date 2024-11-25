@@ -6,7 +6,7 @@
   - Note: most IDs were previously stored as integers.
 
 ## Documentation
-- Update README formatting.
+- Updated README formatting.
 
 ## Under the Hood
 - Added an additional integration test to verify functionality when `greenhouse_using_*` variables are disabled.
