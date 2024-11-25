@@ -34,7 +34,7 @@ final as (
         end 
         {% endif %}
         as {{ dbt.type_timestamp() }}) as end_at,
-        cast(id  as {{ dbt.type_string() }}) as scheduled_interview_id,
+        cast(id as {{ dbt.type_string() }}) as scheduled_interview_id,
         cast(interview_id as {{ dbt.type_string() }}) as interview_id,
         location,
         cast(organizer_id as {{ dbt.type_string() }}) as organizer_user_id,
