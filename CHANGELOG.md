@@ -1,3 +1,8 @@
+# dbt_greenhouse_source version.version
+
+## Documentation
+- Corrected references to connectors and connections in the README. ([#32](https://github.com/fivetran/dbt_greenhouse_source/pull/32))
+
 # dbt_greenhouse_source v0.8.0
 [PR #31](https://github.com/fivetran/dbt_greenhouse_source/pull/31) includes the following updates:
 
