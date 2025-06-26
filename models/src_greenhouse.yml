@@ -7,10 +7,11 @@ sources:
 
     loader: fivetran
     loaded_at_field: _fivetran_synced
-      
-    freshness:
-      warn_after: {count: 72, period: hour}
-      error_after: {count: 96, period: hour}
+
+    config:
+      freshness:
+        warn_after: {count: 72, period: hour}
+        error_after: {count: 96, period: hour}
 
     tables:
       - name: activity
@@ -472,7 +473,8 @@ sources:
       - name: source
         identifier: "{{ var('greenhouse_source_identifier', 'source')}}"
         description: Table capturing an organization's applicant sources.
-        freshness: null
+        config:
+          freshness: null
         columns:
           - name: id
             description: Unique ID of the source. 
@@ -488,7 +490,8 @@ sources:
       - name: tag
         identifier: "{{ var('greenhouse_tag_identifier', 'tag')}}"
         description: Table storing candidate tags.
-        freshness: null
+        config:
+          freshness: null
         columns:
           - name: id
             description: Unique ID of the tag. 
@@ -498,7 +501,8 @@ sources:
       - name: tags
         identifier: "{{ var('greenhouse_tags_identifier', 'tags')}}"
         description: Table storing candidate tags.
-        freshness: null
+        config:
+          freshness: null
         columns:
           - name: id
             description: Unique ID of the tag. 
@@ -508,7 +512,8 @@ sources:
       - name: user
         identifier: "{{ var('greenhouse_user_identifier', 'user')}}"
         description: Table of an organization's Greenhouse users.
-        freshness: null
+        config:
+          freshness: null
         columns:
           - name: created_at
             description: Timestamp of when the user was created.
@@ -530,7 +535,8 @@ sources:
       - name: users
         identifier: "{{ var('greenhouse_users_identifier', 'users')}}"
         description: Table of an organization's Greenhouse users. 
-        freshness: null
+        config:
+          freshness: null
         columns:
           - name: created_at
             description: Timestamp of when the user was created.

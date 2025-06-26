@@ -17,6 +17,7 @@ echo `pwd`
 cd integration_tests
 dbt deps
 dbt seed --target "$db" --full-refresh
+dbt source freshness --target "$db" || echo "...Only verifying freshness runs..."
 dbt run --target "$db" --full-refresh
 dbt test --target "$db"
 dbt run --vars '{greenhouse_using_app_history: false, greenhouse_using_job_department: false, greenhouse_using_job_office: false, greenhouse_using_eeoc: false, greenhouse_using_prospects: false}' --target "$db" --full-refresh
