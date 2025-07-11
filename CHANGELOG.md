@@ -1,3 +1,17 @@
+# dbt_greenhouse_source v0.9.1
+
+PR #XX includes the following updates:
+
+## Feature Updates
+- Introduced the new `ends` column for the `SCHEDULED_INTERVIEW` source and staging models to align with connector updates.
+  - This column will have preference when generating the `end_at` column in the `stg_greenhouse__scheduled_interview` model.
+
+## Under the Hood
+- Updated documentation for all above new/modified columns.
+- Introduced the generate-docs github workflow for consistent docs generation.
+- Updated relevant seed data following the above updates for accurate integration testing.
+- Removed unused seed files.
+
 # dbt_greenhouse_source v0.9.0
 
 [PR #33](https://github.com/fivetran/dbt_greenhouse_source/pull/33) includes the following updates:

@@ -5,12 +5,11 @@
     {"name": "_fivetran_synced", "datatype": dbt.type_timestamp()},
     {"name": "application_id", "datatype": dbt.type_int()},
     {"name": "created_at", "datatype": dbt.type_timestamp()},
-
+    {"name": "ends", "datatype": dbt.type_timestamp()},
     {"name": "id", "datatype": dbt.type_int()},
     {"name": "interview_id", "datatype": dbt.type_int()},
     {"name": "location", "datatype": dbt.type_string()},
     {"name": "organizer_id", "datatype": dbt.type_int()},
-    
     {"name": "status", "datatype": dbt.type_string()},
     {"name": "updated_at", "datatype": dbt.type_timestamp()}
 ] %}

@@ -25,7 +25,7 @@ final as (
         _fivetran_synced,
         cast(application_id as {{ dbt.type_string() }}) as application_id,
         cast(created_at as {{ dbt.type_timestamp() }}) as created_at,
-        cast(
+        cast(coalesce(ends,
         {%- if target.type == 'bigquery' %}
         `end` 
         {% elif target.type in ('redshift','postgres') %} 
@@ -33,7 +33,7 @@ final as (
         {% else %}
         end 
         {% endif %}
-        as {{ dbt.type_timestamp() }}) as end_at,
+        ) as {{ dbt.type_timestamp() }}) as end_at,
         cast(id as {{ dbt.type_string() }}) as scheduled_interview_id,
         cast(interview_id as {{ dbt.type_string() }}) as interview_id,
         location,
