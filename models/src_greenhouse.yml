@@ -391,6 +391,8 @@ sources:
           - name: created_at
             description: Timestamp of when the interview was created. 
           - name: end
+            description: Deprecated in favor of the `ends` column. Timestamp of when the interview is scheduled to end. Will be a date if the interview is all-day.
+          - name: ends
             description: Timestamp of when the interview is scheduled to end. Will be a date if the interview is all-day.
           - name: id
             description: Unique ID of the scheduled interview.
