@@ -5,37 +5,37 @@ profile: 'integration_tests'
 vars:
   greenhouse_schema: greenhouse_source_integration_tests_3
   greenhouse_source:
-    greenhouse_activity_identifier: "activity" # @docs-include
-    greenhouse_application_identifier: "application" # @docs-include
-    greenhouse_application_history_identifier: "application_history" # @docs-include
-    greenhouse_attachment_identifier: "attachment" # @docs-include
-    greenhouse_candidate_identifier: "candidate" # @docs-include
-    greenhouse_candidate_tag_identifier: "candidate_tag" # @docs-include
-    greenhouse_department_identifier: "department" # @docs-include
-    greenhouse_eeoc_identifier: "eeoc" # @docs-include
-    greenhouse_email_address_identifier: "email_address" # @docs-include
-    greenhouse_hiring_team_identifier: "hiring_team" # @docs-include
-    greenhouse_interview_identifier: "interview" # @docs-include
-    greenhouse_job_identifier: "job" # @docs-include
-    greenhouse_job_department_identifier: "job_department" # @docs-include
-    greenhouse_job_office_identifier: "job_office" # @docs-include
-    greenhouse_job_opening_identifier: "job_opening" # @docs-include
-    greenhouse_job_post_identifier: "job_post" # @docs-include
-    greenhouse_job_stage_identifier: "job_stage" # @docs-include
-    greenhouse_job_application_identifier: "job_application" # @docs-include
-    greenhouse_office_identifier: "office" # @docs-include
-    greenhouse_phone_number_identifier: "phone_number" # @docs-include
-    greenhouse_prospect_pool_identifier: "prospect_pool" # @docs-include
-    greenhouse_prospect_stage_identifier: "prospect_stage" # @docs-include
-    greenhouse_scheduled_interviewer_identifier: "scheduled_interviewer" # @docs-include
-    greenhouse_scorecard_identifier: "scorecard" # @docs-include
-    greenhouse_scorecard_attribute_identifier: "scorecard_attribute" # @docs-include
-    greenhouse_social_media_address_identifier: "social_media_address" # @docs-include
-    greenhouse_source_identifier: "source" # @docs-include
-    greenhouse_tags_identifier: "tags" # @docs-include
-    greenhouse_users_identifier: "users" # @docs-include
-    greenhouse_user_email_identifier: "user_email" # @docs-include
-    scheduled_interview: "{{ fivetran_utils.seed_data_helper('scheduled_interview', ('snowflake', 'postgres')) }}" # @docs-include
+    greenhouse_activity_identifier: "activity"
+    greenhouse_application_identifier: "application"
+    greenhouse_application_history_identifier: "application_history"
+    greenhouse_attachment_identifier: "attachment"
+    greenhouse_candidate_identifier: "candidate"
+    greenhouse_candidate_tag_identifier: "candidate_tag"
+    greenhouse_department_identifier: "department"
+    greenhouse_eeoc_identifier: "eeoc"
+    greenhouse_email_address_identifier: "email_address"
+    greenhouse_hiring_team_identifier: "hiring_team"
+    greenhouse_interview_identifier: "interview"
+    greenhouse_job_identifier: "job"
+    greenhouse_job_department_identifier: "job_department"
+    greenhouse_job_office_identifier: "job_office"
+    greenhouse_job_opening_identifier: "job_opening"
+    greenhouse_job_post_identifier: "job_post"
+    greenhouse_job_stage_identifier: "job_stage"
+    greenhouse_job_application_identifier: "job_application"
+    greenhouse_office_identifier: "office"
+    greenhouse_phone_number_identifier: "phone_number"
+    greenhouse_prospect_pool_identifier: "prospect_pool"
+    greenhouse_prospect_stage_identifier: "prospect_stage"
+    greenhouse_scheduled_interviewer_identifier: "scheduled_interviewer"
+    greenhouse_scorecard_identifier: "scorecard"
+    greenhouse_scorecard_attribute_identifier: "scorecard_attribute"
+    greenhouse_social_media_address_identifier: "social_media_address"
+    greenhouse_source_identifier: "source"
+    greenhouse_tags_identifier: "tags"
+    greenhouse_users_identifier: "users"
+    greenhouse_user_email_identifier: "user_email"
+    scheduled_interview: "{{ fivetran_utils.seed_data_helper('scheduled_interview', ('snowflake', 'postgres')) }}"
 
 seeds:
   greenhouse_source_integration_tests:
