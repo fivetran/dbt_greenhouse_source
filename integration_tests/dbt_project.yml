@@ -38,6 +38,8 @@ vars:
     scheduled_interview: "{{ fivetran_utils.seed_data_helper('scheduled_interview', ('snowflake', 'postgres')) }}"
 
 seeds:
+  +docs:
+    show: False
   greenhouse_source_integration_tests:
     +column_types:
       _fivetran_synced: timestamp
@@ -242,3 +244,5 @@ dispatch:
 
 flags:
   send_anonymous_usage_stats: False
+
+  use_colors: True
